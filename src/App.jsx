@@ -22,11 +22,16 @@ function App() {
     console.log(expenses);
   }
 
+  function HandleDeleteExpense(id){
+
+     setExpenses((prev)=> prev.filter((expense)=> expense.id !== id));
+  }
+
   return (
     <div className="container">
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} />
-      <ExpenseList expenses={expenses} />
+      <ExpenseList expenses={expenses} onDeleteExpense={HandleDeleteExpense} />
     </div>
   );
 }

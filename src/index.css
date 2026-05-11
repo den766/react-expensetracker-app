@@ -76,3 +76,25 @@ li p {
   margin-bottom: 5px;
   color: #444;
 }
+
+.delete-btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e53935;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover{
+
+   opacity: 0.9;
+}
+
+.delete-btn:active{
+
+   transform: scale(0.98);
+}
