@@ -11,6 +11,7 @@ function ExpenseList({expenses}) {
             title={expense.title}
             amount={expense.amount}
             category={expense.category}
+            date={expense.createdAt}
           />
         );
       })}

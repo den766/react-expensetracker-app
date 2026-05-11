@@ -14,6 +14,7 @@ function App() {
       title,
       amount,
       category,
+      createdAt : new Date().toISOString(),
     };
 
     setExpenses((prev) => [...prev, newExpense]);

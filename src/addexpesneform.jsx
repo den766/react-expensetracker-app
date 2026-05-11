@@ -33,7 +33,7 @@ function AddExpenseForm({ onHandleForm }) {
           value={amount}
           onChange={(e) => {
             setAmount(Number(e.target.value));
-            console.log(typeof e.target.value);
+            // console.log(typeof e.target.value);
           }}
         ></input>
         <label htmlFor="category">Category:</label>
