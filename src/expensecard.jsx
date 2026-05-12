@@ -31,10 +31,13 @@ function ExpenseCard({
       <p>{amount}</p>
       <p>{category}</p>
       <p>{formatDate(date)}</p>
+
+      <div className="edt-delete-btngroup">
       <button className="delete-btn" onClick={() => deleteExpense(id)}>
         Delete
       </button>
-      <button onClick={() => editExpense(id)}>Edit</button>
+      <button className="edit-btn" onClick={() => editExpense(id)}>Edit</button>
+      </div>
     </li>
   );
 }

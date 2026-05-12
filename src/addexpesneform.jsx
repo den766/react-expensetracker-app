@@ -7,6 +7,7 @@ function AddExpenseForm({ onHandleForm }) {
   return (
     <form
       onSubmit={(e) => {
+        e.preventDefault();
         onHandleForm(e, title, amount, category);
 
         setTitle("");

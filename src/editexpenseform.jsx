@@ -12,11 +12,17 @@ function EditExpenseForm({
   const [editedAmount, setEditedAmount] = useState(amount);
   const [editedCategory, setEditedCategory] = useState(category);
   return (
-    <div className="editexpense">
+    <form
+      className="edit-expense-form"
+      onSubmit={(e) => {
+        e.preventDefault()
+        onUpdateExpense(id, editedTitle, editedAmount, editedCategory);
+      }}
+    >
       <input
         type="text"
         name="Expense_Title"
-        id="expense-title"
+        id="edit_expense-title"
         placeholder="title"
         required
         value={editedTitle}
@@ -25,7 +31,7 @@ function EditExpenseForm({
       <input
         type="number"
         name="Expense_Amount"
-        id="expene-amount"
+        id="edit_expene-amount"
         placeholder="amount"
         required
         value={editedAmount}
@@ -37,7 +43,7 @@ function EditExpenseForm({
       <label htmlFor="category">Category:</label>
       <select
         name="category"
-        id="category"
+        id="edit_category"
         value={editedCategory}
         onChange={(e) => setEditedCategory(e.target.value)}
         required
@@ -49,23 +55,22 @@ function EditExpenseForm({
         <option value="entertainment">Entertainment</option>
         <option value="other">Other</option>
       </select>
-      <button
-        type="submit"
-        onClick={() =>
-          onUpdateExpense(id, editedTitle, editedAmount, editedCategory)
-        }
-      >
-        Update Expense
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          onCancelEdit();
-        }}
-      >
-        Cancel
-      </button>
-    </div>
+
+      <div className="edit-btn-group">
+        <button className="update-btn" type="submit">
+          Update Expense
+        </button>
+        <button
+          type="button"
+          className="cancel-btn"
+          onClick={() => {
+            onCancelEdit();
+          }}
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
   );
 }
 
