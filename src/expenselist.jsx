@@ -1,6 +1,6 @@
 import ExpenseCard from "./expensecard";
 
-function ExpenseList({expenses , onDeleteExpense}) {
+function ExpenseList({expenses , onDeleteExpense , onEditExpense , editingId , onUpdateExpense , onEditCancel}) {
   return (
     <ul>
       {expenses.map((expense) => {
@@ -13,6 +13,10 @@ function ExpenseList({expenses , onDeleteExpense}) {
             category={expense.category}
             date={expense.createdAt}
             deleteExpense={onDeleteExpense}
+            editExpense={onEditExpense}
+            editId = {editingId}
+            updateExpense= {onUpdateExpense}
+            cancelEdit={onEditCancel}
           />
         );
       })}
