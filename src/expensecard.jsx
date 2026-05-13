@@ -10,7 +10,8 @@ function ExpenseCard({
   editExpense,
   editId,
   updateExpense,
-   cancelEdit
+   cancelEdit,
+   error
   
 }) {
   if (editId === id) {
@@ -22,6 +23,7 @@ function ExpenseCard({
         category={category}
         onUpdateExpense ={updateExpense}
         onCancelEdit ={cancelEdit}
+        error={error}
       />
     );
   }

@@ -1,6 +1,6 @@
 import ExpenseCard from "./expensecard";
 
-function ExpenseList({expenses , onDeleteExpense , onEditExpense , editingId , onUpdateExpense , onEditCancel}) {
+function ExpenseList({expenses , onDeleteExpense , onEditExpense , editingId , onUpdateExpense , onEditCancel , error}) {
   return (
     <ul>
       {expenses.map((expense) => {
@@ -17,6 +17,7 @@ function ExpenseList({expenses , onDeleteExpense , onEditExpense , editingId , o
             editId = {editingId}
             updateExpense= {onUpdateExpense}
             cancelEdit={onEditCancel}
+            error={error}
           />
         );
       })}

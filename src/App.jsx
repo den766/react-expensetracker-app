@@ -2,13 +2,23 @@ import { useState } from "react";
 import Header from "./Header";
 import AddExpenseForm from "./addexpesneform";
 import ExpenseList from "./expenselist";
+import { ValidateExpense, formatTitle } from "./utils/validation";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [editingId, setEditingId] = useState(null);
+  const [error, setError] = useState("");
 
   function HandleSubmit(e, title, amount, category) {
     e.preventDefault();
+
+    const cleanTitle = formatTitle(title);
+    const validationError = ValidateExpense(cleanTitle, amount, category);
+
+    if (validationError) {
+      setError(validationError);
+      return false;
+    }
 
     const newExpense = {
       id: Date.now(),
@@ -19,6 +29,7 @@ function App() {
     };
 
     setExpenses((prev) => [...prev, newExpense]);
+    setError("");
 
     console.log(expenses);
   }
@@ -33,12 +44,20 @@ function App() {
   }
 
   function HandleUpdateExpense(id, editedTitle, editedAmount, editedCategory) {
+    const cleanTitle = formatTitle(editedTitle)
+    const validationError = ValidateExpense(cleanTitle, editedAmount, editedCategory);
+
+    if(validationError){
+
+       setError(validationError);
+       return;
+    }
     setExpenses((prev) =>
       prev.map((expense) =>
         expense.id === id
           ? {
               ...expense,
-              title: editedTitle,
+              title: cleanTitle,
               amount: editedAmount,
               category: editedCategory,
             }
@@ -49,22 +68,22 @@ function App() {
     setEditingId(null);
   }
 
-  function HandleEditCancel(){
-
-      setEditingId(null);
+  function HandleEditCancel() {
+    setEditingId(null);
   }
 
   return (
     <div className="container">
       <Header />
-      <AddExpenseForm onHandleForm={HandleSubmit} />
+      <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
       <ExpenseList
         expenses={expenses}
         onDeleteExpense={HandleDeleteExpense}
         onEditExpense={HandleEdit}
         editingId={editingId}
         onUpdateExpense={HandleUpdateExpense}
-        onEditCancel= {HandleEditCancel}
+        onEditCancel={HandleEditCancel}
+        error={error}
       />
     </div>
   );

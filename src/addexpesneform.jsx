@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddExpenseForm({ onHandleForm }) {
+function AddExpenseForm({ onHandleForm, error }) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -8,20 +8,21 @@ function AddExpenseForm({ onHandleForm }) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onHandleForm(e, title, amount, category);
-
-        setTitle("");
-        setAmount("");
-        setCategory("");
+        const sucess = onHandleForm(e, title, amount, category);
+        if (sucess) {
+          setTitle("");
+          setAmount("");
+          setCategory("");
+        }
       }}
     >
       <div className="addexpense">
+        {error && <p className="error">{error}</p>}
         <input
           type="text"
           name="Expense_Title"
           id="expense-title"
           placeholder="title"
-          required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
@@ -30,8 +31,8 @@ function AddExpenseForm({ onHandleForm }) {
           name="Expense_Amount"
           id="expene-amount"
           placeholder="amount"
-          required
           value={amount}
+          onWheel={(e) => e.target.blur()}
           onChange={(e) => {
             setAmount(Number(e.target.value));
             // console.log(typeof e.target.value);
@@ -43,9 +44,8 @@ function AddExpenseForm({ onHandleForm }) {
           id="category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          required
         >
-          <option>Select Category</option>
+          <option value="" disabled>Select Category</option>
           <option value="food">Food</option>
           <option value="transport">Transport</option>
           <option value="utilities">Utilities</option>

@@ -7,6 +7,7 @@ function EditExpenseForm({
   category,
   onUpdateExpense,
   onCancelEdit,
+  error
 }) {
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedAmount, setEditedAmount] = useState(amount);
@@ -15,16 +16,16 @@ function EditExpenseForm({
     <form
       className="edit-expense-form"
       onSubmit={(e) => {
-        e.preventDefault()
+        e.preventDefault();
         onUpdateExpense(id, editedTitle, editedAmount, editedCategory);
       }}
     >
+       {error && <p className="error">{error}</p>}
       <input
         type="text"
         name="Expense_Title"
         id="edit_expense-title"
         placeholder="title"
-        required
         value={editedTitle}
         onChange={(e) => setEditedTitle(e.target.value)}
       ></input>
@@ -33,7 +34,6 @@ function EditExpenseForm({
         name="Expense_Amount"
         id="edit_expene-amount"
         placeholder="amount"
-        required
         value={editedAmount}
         onChange={(e) => {
           setEditedAmount(Number(e.target.value));
@@ -46,9 +46,8 @@ function EditExpenseForm({
         id="edit_category"
         value={editedCategory}
         onChange={(e) => setEditedCategory(e.target.value)}
-        required
       >
-        <option>Select Category</option>
+        <option value="" disabled>Select Category</option>
         <option value="food">Food</option>
         <option value="transport">Transport</option>
         <option value="utilities">Utilities</option>
