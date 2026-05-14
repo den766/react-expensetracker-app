@@ -1,11 +1,13 @@
 export function sanitize(txt) {
-  return txt ? txt : "";
+  return String(txt || "").trim();
 }
 
 export function formatTitle(title) {
   const clean = sanitize(title);
 
-  return clean.charAt(0).toUpperCase() + clean.slice(1).toLowerCase();
+   if (!clean) return "";
+
+  return clean[0].toUpperCase() + clean.slice(1).toLowerCase();
 }
 
 export function ValidateExpense(title, amount, category) {
@@ -25,9 +27,7 @@ export function ValidateExpense(title, amount, category) {
     return "Amount cannot exceed 1,000,000";
   }
 
-  if (!category ) {
+  if (!category) {
     return "Please select a category";
   }
-
-  
 }

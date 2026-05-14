@@ -9,7 +9,7 @@ function AddExpenseForm({ onHandleForm, error }) {
       onSubmit={(e) => {
         e.preventDefault();
         const sucess = onHandleForm(e, title, amount, category);
-        if (sucess) {
+        if (!sucess) {
           setTitle("");
           setAmount("");
           setCategory("");

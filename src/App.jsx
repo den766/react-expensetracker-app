@@ -1,19 +1,18 @@
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import AddExpenseForm from "./addexpesneform";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
-import { saveExpenses , loadExpenses} from "./utils/storage";
+import { saveExpenses, loadExpenses } from "./utils/storage";
 
 function App() {
-  const [expenses, setExpenses] = useState(()=> loadExpenses());
+  const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(()=> {
-
-      saveExpenses(expenses);
-  },[expenses])
+  useEffect(() => {
+    saveExpenses(expenses);
+  }, [expenses]);
 
   function HandleSubmit(e, title, amount, category) {
     e.preventDefault();
@@ -26,9 +25,19 @@ function App() {
       return false;
     }
 
+    const isDuplicate = expenses.some(
+      (expense) => expense.title.toLowerCase() === cleanTitle.toLowerCase(),
+    );
+    console.log(isDuplicate);
+
+    if (isDuplicate) {
+      setError("Duplicate entries ,Try different Keyword");
+      return false;
+    }
+
     const newExpense = {
       id: Date.now(),
-      title,
+      title: cleanTitle,
       amount,
       category,
       createdAt: new Date().toISOString(),
@@ -50,13 +59,16 @@ function App() {
   }
 
   function HandleUpdateExpense(id, editedTitle, editedAmount, editedCategory) {
-    const cleanTitle = formatTitle(editedTitle)
-    const validationError = ValidateExpense(cleanTitle, editedAmount, editedCategory);
+    const cleanTitle = formatTitle(editedTitle);
+    const validationError = ValidateExpense(
+      cleanTitle,
+      editedAmount,
+      editedCategory,
+    );
 
-    if(validationError){
-
-       setError(validationError);
-       return;
+    if (validationError) {
+      setError(validationError);
+      return;
     }
     setExpenses((prev) =>
       prev.map((expense) =>
