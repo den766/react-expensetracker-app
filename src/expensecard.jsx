@@ -30,8 +30,8 @@ function ExpenseCard({
   return (
     <li key={id}>
       <h1>{title}</h1>
-      <p>{amount}</p>
-      <p>{category}</p>
+      <p className="amount">{amount}</p>
+      <p className="category">{category}</p>
       <p>{formatDate(date)}</p>
 
       <div className="edt-delete-btngroup">
