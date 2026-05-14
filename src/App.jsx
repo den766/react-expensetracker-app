@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import Header from "./Header";
 import AddExpenseForm from "./addexpesneform";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
+import { saveExpenses , loadExpenses} from "./utils/storage";
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(()=> loadExpenses());
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState("");
+
+  useEffect(()=> {
+
+      saveExpenses(expenses);
+  },[expenses])
 
   function HandleSubmit(e, title, amount, category) {
     e.preventDefault();
