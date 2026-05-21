@@ -7,6 +7,8 @@ function ExpenseList({
   editingId,
   onUpdateExpense,
   onEditCancel,
+  selectedCategory,
+  setSelectedCategory,
   error,
 }) {
   const categories = [
@@ -21,7 +23,15 @@ function ExpenseList({
     <div>
       <div className="filter_expenses">
         {categories.map((cat) => (
-          <button key={cat}>{cat}</button>
+          <button
+            className={selectedCategory === cat ? "active-filter" : ""}
+            key={cat}
+            onClick={() => {
+              setSelectedCategory(cat);
+            }}
+          >
+            {cat}
+          </button>
         ))}
       </div>
       <ul>

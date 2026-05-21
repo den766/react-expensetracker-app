@@ -8,6 +8,7 @@ import { saveExpenses, loadExpenses } from "./utils/storage";
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -90,12 +91,22 @@ function App() {
     setEditingId(null);
   }
 
+  const filteredExpenses =
+    selectedCategory === "All"
+      ? expenses
+      : expenses.filter(
+          (expense) =>
+            expense.category.toLowerCase() === selectedCategory.toLowerCase(),
+        );
+
   return (
     <div className="container">
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
       <ExpenseList
-        expenses={expenses}
+        expenses={filteredExpenses}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
         onDeleteExpense={HandleDeleteExpense}
         onEditExpense={HandleEdit}
         editingId={editingId}

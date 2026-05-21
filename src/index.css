@@ -233,3 +233,8 @@ li p {
   border: none;
   cursor: pointer;
 }
+
+.active-filter {
+  background-color: black;
+  color: white;
+}
