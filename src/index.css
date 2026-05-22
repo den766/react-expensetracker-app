@@ -238,3 +238,11 @@ li p {
   background-color: black;
   color: white;
 }
+
+.empty_expense{
+
+   text-align: center;
+   margin-top: 10px;
+   font-size: 1.3rem;
+}
+

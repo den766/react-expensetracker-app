@@ -14,11 +14,12 @@ function ExpenseList({
   const categories = [
     "All",
     "Food",
-    "Tranport",
+    "Transport",
     "Utilities",
     "Entertainment",
     "Other",
   ];
+
   return (
     <div>
       <div className="filter_expenses">
@@ -34,6 +35,11 @@ function ExpenseList({
           </button>
         ))}
       </div>
+      {expenses.length === 0 ? (
+        <p className="empty_expense">📒No expenses under the selected category</p>
+      ) : (
+        ""
+      )}
       <ul>
         {expenses.map((expense) => {
           return (

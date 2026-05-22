@@ -99,6 +99,8 @@ function App() {
             expense.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
+
+
   return (
     <div className="container">
       <Header />

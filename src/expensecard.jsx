@@ -10,9 +10,8 @@ function ExpenseCard({
   editExpense,
   editId,
   updateExpense,
-   cancelEdit,
-   error
-  
+  cancelEdit,
+  error,
 }) {
   if (editId === id) {
     return (
@@ -21,8 +20,8 @@ function ExpenseCard({
         title={title}
         amount={amount}
         category={category}
-        onUpdateExpense ={updateExpense}
-        onCancelEdit ={cancelEdit}
+        onUpdateExpense={updateExpense}
+        onCancelEdit={cancelEdit}
         error={error}
       />
     );
@@ -33,12 +32,13 @@ function ExpenseCard({
       <p className="amount">{amount}</p>
       <p className="category">{category}</p>
       <p>{formatDate(date)}</p>
-
       <div className="edt-delete-btngroup">
-      <button className="delete-btn" onClick={() => deleteExpense(id)}>
-        Delete
-      </button>
-      <button className="edit-btn" onClick={() => editExpense(id)}>Edit</button>
+        <button className="delete-btn" onClick={() => deleteExpense(id)}>
+          Delete
+        </button>
+        <button className="edit-btn" onClick={() => editExpense(id)}>
+          Edit
+        </button>
       </div>
     </li>
   );
