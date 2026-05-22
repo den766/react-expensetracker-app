@@ -36,7 +36,9 @@ function ExpenseList({
         ))}
       </div>
       {expenses.length === 0 ? (
-        <p className="empty_expense">📒No expenses under the selected category</p>
+        <div className="empty_expense">
+        <p>📒No expenses under the selected category</p>
+        </div>
       ) : (
         ""
       )}
