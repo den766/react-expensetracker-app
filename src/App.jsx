@@ -4,6 +4,7 @@ import AddExpenseForm from "./addexpesneform";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import { saveExpenses, loadExpenses } from "./utils/storage";
+import ExpenseSummary from "./expensesummary";
 
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
@@ -99,12 +100,17 @@ function App() {
             expense.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
+  const expenseSummary = expenses.reduce((acc, expense) => {
+    return acc + expense.amount;
+  }, 0);
 
+  console.log(expenseSummary);
 
   return (
     <div className="container">
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
+      <ExpenseSummary expenseSummary={expenseSummary}/>
       <ExpenseList
         expenses={filteredExpenses}
         selectedCategory={selectedCategory}
