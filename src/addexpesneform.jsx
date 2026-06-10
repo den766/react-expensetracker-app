@@ -45,7 +45,9 @@ function AddExpenseForm({ onHandleForm, error }) {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="" disabled>Select Category</option>
+          <option value="" disabled>
+            Select Category
+          </option>
           <option value="food">Food</option>
           <option value="transport">Transport</option>
           <option value="utilities">Utilities</option>

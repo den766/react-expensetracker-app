@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import AddExpenseForm from "./addexpesneform";
+import MonthlySummary from "./monthlysummary";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import { saveExpenses, loadExpenses } from "./utils/storage";
@@ -111,6 +112,7 @@ function App() {
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
       <ExpenseSummary expenseSummary={expenseSummary}/>
+      <MonthlySummary  expenses={expenses}/>
       <ExpenseList
         expenses={filteredExpenses}
         selectedCategory={selectedCategory}
