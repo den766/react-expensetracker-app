@@ -22,13 +22,16 @@ function MonthlySummary({ expenses }) {
   console.log(Object.entries(summary)[0]);
 
   return (
-    <div>
+    <div className="monthly-summary">
       <h2>Monthly Summary</h2>
 
+      <p className="summary-subtitle">Expenses grouped by month</p>
+
       {monthlyTotals.map(([month, total]) => (
-        <p key={month}>
-          {month} → ₹{total}
-        </p>
+        <div className="month-row" key={month}>
+          <span>{month}</span>
+          <span>₹{total}</span>
+        </div>
       ))}
     </div>
   );
