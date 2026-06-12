@@ -6,7 +6,11 @@ import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import { saveExpenses, loadExpenses } from "./utils/storage";
 import ExpenseSummary from "./expensesummary";
-
+import { Routes, Route } from "react-router-dom";
+import ExpesneLayoutDashboard from "./pages/expenselayout";
+import DemoAddexpense from "./pages/addexpesne";
+import DemoExpesneList from "./pages/expenselistdemo";
+import DemoReport from "./pages/reports";
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
@@ -111,8 +115,8 @@ function App() {
     <div className="container">
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
-      <ExpenseSummary expenseSummary={expenseSummary}/>
-      <MonthlySummary  expenses={expenses}/>
+      <ExpenseSummary expenseSummary={expenseSummary} />
+      <MonthlySummary expenses={expenses} />
       <ExpenseList
         expenses={filteredExpenses}
         selectedCategory={selectedCategory}
@@ -124,6 +128,15 @@ function App() {
         onEditCancel={HandleEditCancel}
         error={error}
       />
+
+      <Routes>
+        <Route path="/expense-dashboard" element={<ExpesneLayoutDashboard/>}>
+          <Route index element={<DemoExpesneList/>} />
+          <Route path="create-expense" element={<DemoAddexpense/>} />
+          <Route path="expense-list" element={<DemoExpesneList/>}/>
+          <Route path="reports" element={<DemoReport/>} />
+        </Route>
+      </Routes>
     </div>
   );
 }
