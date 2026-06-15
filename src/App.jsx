@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import Header from "./Header";
+
 import AddExpenseForm from "./addexpesneform";
 import MonthlySummary from "./monthlysummary";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import { saveExpenses, loadExpenses } from "./utils/storage";
 import ExpenseSummary from "./expensesummary";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
 
 import DemoReport from "./pages/reports";
 import SearchExpense from "./searchexpense";
+
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
@@ -122,16 +123,8 @@ function App() {
 
   return (
     <div className="container">
-      {/* <Header />
-      <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
-      <SearchExpense
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
-      <ExpenseSummary expenseSummary={expenseSummary} />
-      <MonthlySummary expenses={expenses} /> */}
-
       <Routes>
+        <Route path="/" element={<Navigate to="/expense-dashboard" />}></Route>
         <Route path="/expense-dashboard" element={<ExpesneLayoutDashboard />}>
           <Route
             index
@@ -142,6 +135,7 @@ function App() {
               </>
             }
           />
+
           <Route
             path="create-expense"
             element={

@@ -1,23 +1,44 @@
-import { Link , Outlet} from "react-router-dom";
-
+import { NavLink, Outlet } from "react-router-dom";
+import Header from "../Header";
+import Footer from "../footer";
 
 function ExpesneLayoutDashboard() {
-
-
-      return (
-
-          <div>
-
-             <h1>Expese Tracker</h1>
-            <nav>
-                <Link to={"create-expense"}>Create Expense</Link>
-                <Link to={"expense-list"}>Expense List</Link>
-                <Link to={"reports"}>reports</Link>
-            </nav>
-            <Outlet/>
-            <footer>2026</footer>
-          </div>
-      )
+  return (
+    <div>
+      <Header />
+      
+      <nav className="dashboard-nav">
+        
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to={"/expense-dashboard"}
+          end
+        >
+          Overview
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to={"create-expense"}
+        >
+          Create Expense
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to={"expense-list"}
+        >
+          Expense List
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to={"reports"}
+        >
+          reports
+        </NavLink>
+      </nav>
+      <Outlet />
+      <Footer />
+    </div>
+  );
 }
 
 export default ExpesneLayoutDashboard;
