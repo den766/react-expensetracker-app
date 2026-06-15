@@ -115,7 +115,7 @@ function App() {
           expense.category.toLowerCase().includes(searchQuery.toLowerCase()),
       );
 
-  console.log(visibleExpenses);
+  // console.log(visibleExpenses);
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;

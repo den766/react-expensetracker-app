@@ -1,8 +1,9 @@
 function SearchExpense({ searchQuery, setSearchQuery }) {
   return (
-    <div>
+    <div className="Search">
       <input
         type="text"
+        placeholder="Search Expenses"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
