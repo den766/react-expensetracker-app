@@ -1,47 +1,147 @@
-# Expense Tracker App
+# Expense Tracker Dashboard
 
-A React-based Expense Tracker application built while learning full-stack development.
+A React-based Expense Tracker Dashboard built as part of my MERN Stack learning journey.
+
+The project started as a simple expense tracker and gradually evolved into a multi-page dashboard application featuring CRUD operations, search, filtering, analytics, local persistence, and client-side routing.
+
+## Live Demo
+
+🔗 https://react-expensetracker-app.vercel.app
+
+---
 
 ## Features
 
-- Add expenses
-- Render expense list dynamically
-- Controlled form inputs using React state
-- Component-based structure
-- Basic responsive UI
+### Expense Management
+
+- Add new expenses
+- Edit existing expenses
+- Delete expenses
+- Form validation
+- LocalStorage persistence
+
+### Organization & Search
+
+- Category-based filtering
+- Expense search functionality
+- Empty state handling
+
+### Analytics & Summaries
+
+- Total expense summary using `Array.reduce()`
+- Monthly expense summary using grouping and `reduce()`
+- Real-time derived statistics
+
+### Routing & Navigation
+
+- Multi-page dashboard using React Router
+- Nested routes
+- Shared dashboard layout
+- Active navigation links
+- Dashboard overview page
+- Route-based navigation flow
+
+### User Experience
+
+- Responsive design
+- Clean dashboard layout
+- Reusable component architecture
+- Intuitive navigation
+
+---
 
 ## Tech Stack
 
 - React
-- JavaScript
+- JavaScript (ES6+)
+- React Router DOM
 - CSS
 - Vite
 
-## Learning Goals
+---
 
-This project is being built to practice:
+## Key Learning Outcomes
 
-- React fundamentals
-- State management with `useState`
-- Controlled inputs
-- Props and component communication
-- CRUD operations
-- Full-stack MERN workflow
+During this project, I practiced:
+
+- Building CRUD functionality with React
+- Managing state using a single source of truth
+- Creating derived state for filtering and search
+- Transforming data using `map()`, `filter()`, and `reduce()`
+- Grouping expenses by month for analytics
+- Implementing client-side persistence with LocalStorage
+- Structuring applications using reusable React components
+- Building multi-page dashboards with React Router
+- Creating nested layouts and navigation flows
+- Thinking about application architecture and user experience
+
+---
+
+## React Concepts Practiced
+
+- React Components
+- Props
+- useState
+- useEffect
+- Controlled Forms
+- Conditional Rendering
+- Component Composition
+- Array Methods (`map`, `filter`, `reduce`)
+- CRUD Operations
+- Derived State
+- LocalStorage
+- React Router
+- Nested Routes
+- Layout Routes
+- Navigation & Route Management
+
+---
 
 ## Project Status
 
-Currently in development.
+🚀 Frontend MVP Completed
 
-Planned features:
+### Current Functionality
 
-- Delete expense
-- Edit expense
-- Filters and categories
-- Local storage
-- Backend with Node.js + Express
-- MongoDB integration
-- Authentication
-- Deployment
+- Dashboard Overview
+- Create Expense
+- Expense List
+- Search Expenses
+- Filter Expenses
+- Edit Expenses
+- Delete Expenses
+- Expense Summary
+- Monthly Summary
+- Routing & Navigation
+- LocalStorage Persistence
+
+### Next Planned Features
+
+#### Frontend Improvements
+
+- Expense sorting
+- Advanced filtering
+- Charts and visual analytics
+- Dark mode
+- Enhanced mobile responsiveness
+
+#### Backend Integration
+
+- Node.js
+- Express.js
+- REST API
+- MongoDB Database
+- Persistent cloud storage
+
+#### Authentication
+
+- User Registration
+- User Login
+- Protected Routes
+- JWT Authentication
+- User-specific expense management
+
+---
 
 ## Installation
 
@@ -50,11 +150,14 @@ npm install
 npm run dev
 ```
 
-## Folder Structure
+---
 
-```bash
-src/
-├── components/
-├── App.jsx
-├── main.jsx
-```
+## Deployment
+
+Hosted on Vercel.
+
+---
+
+## Future Goal
+
+Transform this project into a full-stack MERN application with authentication, cloud-based data persistence, user-specific expense management, and analytics dashboards.
