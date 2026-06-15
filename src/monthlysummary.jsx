@@ -19,7 +19,7 @@ function MonthlySummary({ expenses }) {
 
   const monthlyTotals = Object.entries(summary);
 
-  console.log(Object.entries(summary)[0]);
+  // console.log(Object.entries(summary)[0]);
 
   return (
     <div className="monthly-summary">

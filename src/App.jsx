@@ -11,11 +11,14 @@ import ExpesneLayoutDashboard from "./pages/expenselayout";
 import DemoAddexpense from "./pages/addexpesne";
 import DemoExpesneList from "./pages/expenselistdemo";
 import DemoReport from "./pages/reports";
+import SearchExpense from "./searchexpense";
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
+  console.log(searchQuery);
 
   useEffect(() => {
     saveExpenses(expenses);
@@ -62,7 +65,6 @@ function App() {
 
   function HandleEdit(id) {
     setEditingId(id);
-    console.log(editingId);
   }
 
   function HandleUpdateExpense(id, editedTitle, editedAmount, editedCategory) {
@@ -105,20 +107,32 @@ function App() {
             expense.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
+  const visibleExpenses = !searchQuery
+    ? filteredExpenses
+    : filteredExpenses.filter(
+        (expense) =>
+          expense.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          expense.category.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+
+  console.log(visibleExpenses);
+
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;
   }, 0);
-
-  console.log(expenseSummary);
 
   return (
     <div className="container">
       <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
+      <SearchExpense
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <ExpenseSummary expenseSummary={expenseSummary} />
       <MonthlySummary expenses={expenses} />
       <ExpenseList
-        expenses={filteredExpenses}
+        expenses={visibleExpenses}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
         onDeleteExpense={HandleDeleteExpense}
@@ -130,11 +144,11 @@ function App() {
       />
 
       <Routes>
-        <Route path="/expense-dashboard" element={<ExpesneLayoutDashboard/>}>
-          <Route index element={<DemoExpesneList/>} />
-          <Route path="create-expense" element={<DemoAddexpense/>} />
-          <Route path="expense-list" element={<DemoExpesneList/>}/>
-          <Route path="reports" element={<DemoReport/>} />
+        <Route path="/expense-dashboard" element={<ExpesneLayoutDashboard />}>
+          <Route index element={<DemoExpesneList />} />
+          <Route path="create-expense" element={<DemoAddexpense />} />
+          <Route path="expense-list" element={<DemoExpesneList />} />
+          <Route path="reports" element={<DemoReport />} />
         </Route>
       </Routes>
     </div>
