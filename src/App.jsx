@@ -8,8 +8,7 @@ import { saveExpenses, loadExpenses } from "./utils/storage";
 import ExpenseSummary from "./expensesummary";
 import { Routes, Route } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
-import DemoAddexpense from "./pages/addexpesne";
-import DemoExpesneList from "./pages/expenselistdemo";
+
 import DemoReport from "./pages/reports";
 import SearchExpense from "./searchexpense";
 function App() {
@@ -123,31 +122,54 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      {/* <Header />
       <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
       <SearchExpense
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
       <ExpenseSummary expenseSummary={expenseSummary} />
-      <MonthlySummary expenses={expenses} />
-      <ExpenseList
-        expenses={visibleExpenses}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-        onDeleteExpense={HandleDeleteExpense}
-        onEditExpense={HandleEdit}
-        editingId={editingId}
-        onUpdateExpense={HandleUpdateExpense}
-        onEditCancel={HandleEditCancel}
-        error={error}
-      />
+      <MonthlySummary expenses={expenses} /> */}
 
       <Routes>
         <Route path="/expense-dashboard" element={<ExpesneLayoutDashboard />}>
-          <Route index element={<DemoExpesneList />} />
-          <Route path="create-expense" element={<DemoAddexpense />} />
-          <Route path="expense-list" element={<DemoExpesneList />} />
+          <Route
+            index
+            element={
+              <>
+                <ExpenseSummary expenseSummary={expenseSummary} />
+                <MonthlySummary expenses={expenses} />
+              </>
+            }
+          />
+          <Route
+            path="create-expense"
+            element={
+              <AddExpenseForm onHandleForm={HandleSubmit} error={error} />
+            }
+          />
+          <Route
+            path="expense-list"
+            element={
+              <>
+                <SearchExpense
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                />
+                <ExpenseList
+                  expenses={visibleExpenses}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                  onDeleteExpense={HandleDeleteExpense}
+                  onEditExpense={HandleEdit}
+                  editingId={editingId}
+                  onUpdateExpense={HandleUpdateExpense}
+                  onEditCancel={HandleEditCancel}
+                  error={error}
+                />
+              </>
+            }
+          />
           <Route path="reports" element={<DemoReport />} />
         </Route>
       </Routes>
