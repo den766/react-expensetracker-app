@@ -48,9 +48,10 @@ function ExpenseCard({
       </li>
 
       {selectedExpenseId === id && (
-        <div>
+        <div className="modal-overlay">
+        <div className="confirmation-modal">
           <p>Are you sure want to delete {title}?</p>
-
+          <div className="btn-container">
           <button onClick={closeModal}>Cancel</button>
 
           <button
@@ -61,6 +62,8 @@ function ExpenseCard({
           >
             Confirm
           </button>
+          </div>
+        </div>
         </div>
       )}
     </>

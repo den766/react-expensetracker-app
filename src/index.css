@@ -352,7 +352,7 @@ li p {
 .dashboard-nav {
   display: flex;
   justify-content: center;
-   flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 0.75rem;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -361,7 +361,7 @@ li p {
 }
 
 .dashboard-nav a {
- text-decoration: none;
+  text-decoration: none;
   color: #374151;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -390,8 +390,88 @@ li p {
   color: #111827;
 }
 
-/* Responsive */
+/* Confirmation Modal */
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+
+  z-index: 1000;
+}
+
+.confirmation-modal {
+  background: white;
+
+  width: 100%;
+  max-width: 400px;
+
+  padding: 1.5rem;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-modal p {
+  margin-bottom: 1.5rem;
+
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-container {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.btn-container button:first-child {
+  background: #e5e7eb;
+
+  color: #111827;
+}
+
+.btn-container button:last-child {
+  background: #ef4444;
+
+  color: white;
+}
+
+.btn-container button {
+  border: none;
+
+  padding: 0.75rem 1.25rem;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  min-width: 120px;
+
+  transition: 0.2s ease;
+}
+
+.btn-container button:hover {
+  transform: translateY(-2px);
+}
+
+
+
+/* Responsive */
 
 @media (max-width: 768px) {
   body {
@@ -428,5 +508,19 @@ li p {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmation-modal {
+    max-width: 100%;
+  }
+
+  .btn-container {
+    flex-direction: column;
+  }
+
+  .btn-container button {
+    width: 100%;
   }
 }
