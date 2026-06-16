@@ -12,6 +12,9 @@ import ExpesneLayoutDashboard from "./pages/expenselayout";
 import DemoReport from "./pages/reports";
 import SearchExpense from "./searchexpense";
 
+import { toast, ToastContainer } from "react-toastify";
+
+
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
@@ -19,6 +22,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
   console.log(searchQuery);
+  // console.log(ToastContainer);
 
   useEffect(() => {
     saveExpenses(expenses);
@@ -56,11 +60,14 @@ function App() {
     setExpenses((prev) => [...prev, newExpense]);
     setError("");
 
+    toast("Expense Added");
+
     console.log(expenses);
   }
 
   function HandleDeleteExpense(id) {
     setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+    toast("Expense Deleted");
   }
 
   function HandleEdit(id) {
@@ -93,6 +100,8 @@ function App() {
     );
 
     setEditingId(null);
+
+    toast("Expense Updated");
   }
 
   function HandleEditCancel() {
@@ -167,6 +176,8 @@ function App() {
           <Route path="reports" element={<DemoReport />} />
         </Route>
       </Routes>
+
+      <ToastContainer/>
     </div>
   );
 }
