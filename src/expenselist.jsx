@@ -1,5 +1,5 @@
 import ExpenseCard from "./expensecard";
-import UseConfirmationModel from "./hooks/useConfirmmodel";
+import UserConfirmationModel from "./hooks/useConfirmmodel";
 function ExpenseList({
   expenses,
   onDeleteExpense,
@@ -11,7 +11,7 @@ function ExpenseList({
   setSelectedCategory,
   error,
 }) {
-  const { selectedExpenseId, openModal, closeModal } = UseConfirmationModel();
+  const { selectedExpenseId, openModal, closeModal } = UserConfirmationModel();
   const categories = [
     "All",
     "Food",

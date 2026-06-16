@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-function UseConfirmationModel(){
+function UserConfirmationModel(){
 
        
       const [selectedExpenseId, setSelectedExpenseId] = useState(null);
@@ -22,4 +22,4 @@ function UseConfirmationModel(){
       }
 }
 
-export default UseConfirmationModel;
+export default UserConfirmationModel;
