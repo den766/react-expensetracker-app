@@ -12,6 +12,9 @@ function ExpenseCard({
   updateExpense,
   cancelEdit,
   error,
+  selectedExpenseId,
+  openModal,
+  closeModal,
 }) {
   if (editId === id) {
     return (
@@ -26,21 +29,41 @@ function ExpenseCard({
       />
     );
   }
+
   return (
-    <li key={id}>
-      <h1>{title}</h1>
-      <p className="amount">₹{amount}</p>
-      <p className="category">{category}</p>
-      <p>{formatDate(date)}</p>
-      <div className="edt-delete-btngroup">
-        <button className="delete-btn" onClick={() => deleteExpense(id)}>
-          Delete
-        </button>
-        <button className="edit-btn" onClick={() => editExpense(id)}>
-          Edit
-        </button>
-      </div>
-    </li>
+    <>
+      <li key={id}>
+        <h1>{title}</h1>
+        <p className="amount">₹{amount}</p>
+        <p className="category">{category}</p>
+        <p>{formatDate(date)}</p>
+        <div className="edt-delete-btngroup">
+          <button className="delete-btn" onClick={() => openModal(id)}>
+            Delete
+          </button>
+          <button className="edit-btn" onClick={() => editExpense(id)}>
+            Edit
+          </button>
+        </div>
+      </li>
+
+      {selectedExpenseId === id && (
+        <div>
+          <p>Are you sure want to delete {title}?</p>
+
+          <button onClick={closeModal}>Cancel</button>
+
+          <button
+            onClick={() => {
+              deleteExpense(id);
+              closeModal();
+            }}
+          >
+            Confirm
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 
