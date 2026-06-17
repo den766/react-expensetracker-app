@@ -32,7 +32,7 @@ function ExpesneLayoutDashboard() {
           className={({ isActive }) => (isActive ? "active" : "")}
           to={"reports"}
         >
-          reports
+          Reports
         </NavLink>
       </nav>
       <Outlet />
