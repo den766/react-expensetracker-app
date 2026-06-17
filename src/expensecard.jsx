@@ -33,10 +33,10 @@ function ExpenseCard({
   return (
     <>
       <li key={id}>
-        <h1>{title}</h1>
+        <p className="expense-title">{title}</p>
         <p className="amount">₹{amount}</p>
         <p className="category">{category}</p>
-        <p>{formatDate(date)}</p>
+        <p className="expense-date">{formatDate(date)}</p>
         <div className="edt-delete-btngroup">
           <button className="delete-btn" onClick={() => openModal(id)}>
             Delete

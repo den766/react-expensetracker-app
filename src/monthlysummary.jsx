@@ -23,7 +23,7 @@ function MonthlySummary({ expenses }) {
 
   return (
     <div className="monthly-summary">
-      <h2>Monthly Summary</h2>
+      <h3>Monthly Summary</h3>
 
       <p className="summary-subtitle">Expenses grouped by month</p>
 
