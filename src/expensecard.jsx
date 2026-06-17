@@ -49,21 +49,20 @@ function ExpenseCard({
 
       {selectedExpenseId === id && (
         <div className="modal-overlay">
-        <div className="confirmation-modal">
-          <p>Are you sure want to delete {title}?</p>
-          <div className="btn-container">
-          <button onClick={closeModal}>Cancel</button>
+          <div className="confirmation-modal">
+            <p>Are you sure you want to delete {title}? This action cannot be undone.</p>
+            <div className="btn-container">
+              <button onClick={closeModal}>Cancel</button>
 
-          <button
-            onClick={() => {
-              deleteExpense(id);
-              closeModal();
-            }}
-          >
-            Confirm
-          </button>
+              <button
+                onClick={() => {
+                  deleteExpense(id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       )}
     </>
