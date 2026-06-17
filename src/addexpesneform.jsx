@@ -17,12 +17,14 @@ function AddExpenseForm({ onHandleForm, error }) {
       }}
     >
       <div className="addexpense">
+        <h2>Create Expense</h2>
         {error && <p className="error">{error}</p>}
+
         <input
           type="text"
           name="Expense_Title"
           id="expense-title"
-          placeholder="title"
+          placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
@@ -30,7 +32,7 @@ function AddExpenseForm({ onHandleForm, error }) {
           type="number"
           name="Expense_Amount"
           id="expene-amount"
-          placeholder="amount"
+          placeholder="Amount"
           value={amount}
           onWheel={(e) => e.target.blur()}
           onChange={(e) => {

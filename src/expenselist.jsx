@@ -23,6 +23,7 @@ function ExpenseList({
 
   return (
     <div>
+        <h2>Expense List</h2>
       <div className="filter_expenses">
         {categories.map((cat) => (
           <button
