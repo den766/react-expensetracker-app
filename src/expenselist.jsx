@@ -23,27 +23,24 @@ function ExpenseList({
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(currentPage);
 
   const perPage = 10;
 
-   const totalPages = Math.ceil(expenses.length / perPage);
+  const totalPages = Math.ceil(expenses.length / perPage);
 
   const start = (currentPage - 1) * perPage;
-  console.log(start);
+
   const end = start + perPage;
-  console.log(end);
+
   const currentExpenses = expenses.slice(start, end);
 
   const handlePrev = () => {
     setCurrentPage((prev) => prev - 1);
   };
 
-
-  const handleNext= () => {
-
-     setCurrentPage((prev) => prev + 1);
-  }
+  const handleNext = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
   return (
     <div>
       <h2>Expense List</h2>
@@ -93,19 +90,13 @@ function ExpenseList({
       </ul>
 
       <div className="pagination">
-        <button
-          onClick={handlePrev}
-          disabled={currentPage === 1}
-        >
+        <button onClick={handlePrev} disabled={currentPage === 1}>
           Prev
         </button>
-         <button
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-        >
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
           Next
         </button>
-        </div>
+      </div>
     </div>
   );
 }

@@ -136,7 +136,9 @@ li .expense-title {
   font-weight: 600;
 }
 
-li .amount , .category ,.expense-date  {
+li .amount,
+.category,
+.expense-date {
   font-size: var(--text-base);
 }
 
@@ -506,8 +508,7 @@ li .amount , .category ,.expense-date  {
 /* Pagination */
 
 .pagination {
-
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--space-sm);
