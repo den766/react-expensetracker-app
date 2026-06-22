@@ -23,6 +23,7 @@ function ExpenseList({
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
+  console.log(currentPage);
 
   const perPage = 10;
 
@@ -53,6 +54,7 @@ function ExpenseList({
             key={cat}
             onClick={() => {
               setSelectedCategory(cat);
+              setCurrentPage(1);
             }}
           >
             {cat}
