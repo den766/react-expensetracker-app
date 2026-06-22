@@ -89,14 +89,16 @@ function ExpenseList({
         })}
       </ul>
 
-      <div className="pagination">
-        <button onClick={handlePrev} disabled={currentPage === 1}>
-          Prev
-        </button>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
+      {expenses.length > 0 && (
+        <div className="pagination">
+          <button onClick={handlePrev} disabled={currentPage === 1}>
+            Prev
+          </button>
+          <button onClick={handleNext} disabled={currentPage === totalPages}>
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
