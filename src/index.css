@@ -503,6 +503,36 @@ li .amount , .category ,.expense-date  {
   transform: translateY(-2px);
 }
 
+/* Pagination */
+
+.pagination {
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 2rem;
+}
+
+.pagination button {
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 8px;
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {

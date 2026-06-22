@@ -92,7 +92,7 @@ function ExpenseList({
         })}
       </ul>
 
-      <div>
+      <div className="pagination">
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
