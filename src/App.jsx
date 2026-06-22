@@ -13,8 +13,6 @@ import DemoReport from "./pages/reports";
 import SearchExpense from "./searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
-
-
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
@@ -177,7 +175,7 @@ function App() {
         </Route>
       </Routes>
 
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

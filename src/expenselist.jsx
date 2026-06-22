@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ExpenseCard from "./expensecard";
 import UserConfirmationModel from "./hooks/useConfirmmodel";
 function ExpenseList({
@@ -21,9 +22,30 @@ function ExpenseList({
     "Other",
   ];
 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const perPage = 10;
+
+   const totalPages = Math.ceil(expenses.length / perPage);
+
+  const start = (currentPage - 1) * perPage;
+  console.log(start);
+  const end = start + perPage;
+  console.log(end);
+  const currentExpenses = expenses.slice(start, end);
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => prev - 1);
+  };
+
+
+  const handleNext= () => {
+
+     setCurrentPage((prev) => prev + 1);
+  }
   return (
     <div>
-        <h2>Expense List</h2>
+      <h2>Expense List</h2>
       <div className="filter_expenses">
         {categories.map((cat) => (
           <button
@@ -45,7 +67,7 @@ function ExpenseList({
         ""
       )}
       <ul>
-        {expenses.map((expense) => {
+        {currentExpenses.map((expense) => {
           return (
             <ExpenseCard
               key={expense.id}
@@ -67,6 +89,21 @@ function ExpenseList({
           );
         })}
       </ul>
+
+      <div>
+        <button
+          onClick={handlePrev}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+         <button
+          onClick={handleNext}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+        </div>
     </div>
   );
 }

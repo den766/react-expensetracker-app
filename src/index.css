@@ -459,7 +459,7 @@ li .amount , .category ,.expense-date  {
 .confirmation-modal p {
   margin-bottom: var(--space-lg);
 
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   line-height: 1.5;
 }
 
