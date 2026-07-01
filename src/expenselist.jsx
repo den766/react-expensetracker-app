@@ -12,6 +12,7 @@ function ExpenseList({
   setSelectedCategory,
   error,
   setSortOrderValue,
+  sortOrderValue,
 }) {
   const { selectedExpenseId, openModal, closeModal } = UserConfirmationModel();
   const categories = [
@@ -22,8 +23,6 @@ function ExpenseList({
     "Entertainment",
     "Other",
   ];
-
-  const sortingValues = ["highest", "none"];
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -63,17 +62,18 @@ function ExpenseList({
         ))}
       </div>
 
-      <div className="sort_expenses">
-        {sortingValues.map((sortVal) => (
-          <button
-            key={sortVal}
-            onClick={() => {
-              setSortOrderValue(sortVal);
-            }}
-          >
-            {sortVal}
-          </button>
-        ))}
+      <div className="sort-container">
+        <label htmlFor="sort">Sort by</label>
+
+        <select
+          id="sort"
+          value={sortOrderValue}
+          onChange={(e) => setSortOrderValue(e.target.value)}
+        >
+          <option value="none">None</option>
+          <option value="highest">Highest Amount</option>
+          <option value="lowest">Lowest Amount</option>
+        </select>
       </div>
 
       {expenses.length === 0 ? (
@@ -122,5 +122,3 @@ function ExpenseList({
 }
 
 export default ExpenseList;
-
-

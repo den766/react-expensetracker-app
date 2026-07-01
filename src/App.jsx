@@ -167,6 +167,7 @@ function App() {
                   onEditCancel={HandleEditCancel}
                   error={error}
                   setSortOrderValue={setSortOrderValue}
+                  sortOrderValue={sortOrderValue}
                 />
               </>
             }
