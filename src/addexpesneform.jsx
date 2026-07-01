@@ -39,7 +39,7 @@ function AddExpenseForm({ onHandleForm, error }) {
             setAmount(Number(e.target.value));
           }}
         ></input>
-        {/* <label htmlFor="category">Category:</label> */}
+        <label htmlFor="category">Category:</label>
         <select
           name="category"
           id="category"
