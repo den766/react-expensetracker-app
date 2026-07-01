@@ -62,19 +62,21 @@ function ExpenseList({
         ))}
       </div>
 
-      <div className="sort-container">
-        <label htmlFor="sort">Sort by</label>
+      {expenses.length > 1 && (
+        <div className="sort-container">
+          <label htmlFor="sort">Sort by</label>
 
-        <select
-          id="sort"
-          value={sortOrderValue}
-          onChange={(e) => setSortOrderValue(e.target.value)}
-        >
-          <option value="none">None</option>
-          <option value="highest">Highest Amount</option>
-          <option value="lowest">Lowest Amount</option>
-        </select>
-      </div>
+          <select
+            id="sort"
+            value={sortOrderValue}
+            onChange={(e) => setSortOrderValue(e.target.value)}
+          >
+            <option value="none">None</option>
+            <option value="highest">Highest Amount</option>
+            <option value="lowest">Lowest Amount</option>
+          </select>
+        </div>
+      )}
 
       {expenses.length === 0 ? (
         <div className="empty_expense">
