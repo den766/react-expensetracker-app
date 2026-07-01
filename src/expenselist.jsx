@@ -11,7 +11,6 @@ function ExpenseList({
   selectedCategory,
   setSelectedCategory,
   error,
-  sortOrderValue,
   setSortOrderValue,
 }) {
   const { selectedExpenseId, openModal, closeModal } = UserConfirmationModel();
@@ -124,4 +123,4 @@ function ExpenseList({
 
 export default ExpenseList;
 
-// Today, start implementing Sort functionality after learning the sort method in js
+

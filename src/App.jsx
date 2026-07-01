@@ -20,8 +20,6 @@ function App() {
   const [sortOrderValue, setSortOrderValue] = useState("none");
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
-  console.log(searchQuery);
-  // console.log(ToastContainer);
 
   useEffect(() => {
     saveExpenses(expenses);
@@ -41,7 +39,6 @@ function App() {
     const isDuplicate = expenses.some(
       (expense) => expense.title.toLowerCase() === cleanTitle.toLowerCase(),
     );
-    console.log(isDuplicate);
 
     if (isDuplicate) {
       setError("Duplicate entries ,Try different Keyword");
@@ -60,8 +57,6 @@ function App() {
     setError("");
 
     toast("Expense Added");
-
-    // console.log(expenses);
   }
 
   function HandleDeleteExpense(id) {
@@ -115,8 +110,6 @@ function App() {
             expense.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
- 
-
   const visibleExpenses = !searchQuery
     ? filteredExpenses
     : filteredExpenses.filter(
@@ -125,8 +118,10 @@ function App() {
           expense.category.toLowerCase().includes(searchQuery.toLowerCase()),
       );
 
-  const sortExpenses = sortOrderValue === "none" ? visibleExpenses : visibleExpenses.toSorted((a,b)=> b.amount - a.amount);
-  console.log(sortExpenses);
+  const sortExpenses =
+    sortOrderValue === "none"
+      ? visibleExpenses
+      : visibleExpenses.toSorted((a, b) => b.amount - a.amount);
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;
@@ -171,7 +166,6 @@ function App() {
                   onUpdateExpense={HandleUpdateExpense}
                   onEditCancel={HandleEditCancel}
                   error={error}
-                  sortOrderValue={sortOrderValue}
                   setSortOrderValue={setSortOrderValue}
                 />
               </>
