@@ -118,10 +118,24 @@ function App() {
           expense.category.toLowerCase().includes(searchQuery.toLowerCase()),
       );
 
-  const sortExpenses =
-    sortOrderValue === "none"
-      ? visibleExpenses
-      : visibleExpenses.toSorted((a, b) => b.amount - a.amount);
+  let sortExpenses;
+
+  switch (sortOrderValue) {
+    case "none":
+      sortExpenses = visibleExpenses;
+      break;
+
+    case "highest":
+      sortExpenses = visibleExpenses.toSorted((a, b) => b.amount - a.amount);
+      break;
+
+    case "lowest":
+      sortExpenses = visibleExpenses.toSorted((a, b) => a.amount - b.amount);
+      break;
+
+    default:
+      sortExpenses = visibleExpenses;
+  }
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;
