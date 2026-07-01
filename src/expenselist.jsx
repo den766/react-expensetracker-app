@@ -11,6 +11,8 @@ function ExpenseList({
   selectedCategory,
   setSelectedCategory,
   error,
+  sortOrderValue,
+  setSortOrderValue,
 }) {
   const { selectedExpenseId, openModal, closeModal } = UserConfirmationModel();
   const categories = [
@@ -21,6 +23,8 @@ function ExpenseList({
     "Entertainment",
     "Other",
   ];
+
+  const sortingValues = ["highest", "none"];
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -52,12 +56,27 @@ function ExpenseList({
             onClick={() => {
               setSelectedCategory(cat);
               setCurrentPage(1);
+              setSortOrderValue("none");
             }}
           >
             {cat}
           </button>
         ))}
       </div>
+
+      <div className="sort_expenses">
+        {sortingValues.map((sortVal) => (
+          <button
+            key={sortVal}
+            onClick={() => {
+              setSortOrderValue(sortVal);
+            }}
+          >
+            {sortVal}
+          </button>
+        ))}
+      </div>
+
       {expenses.length === 0 ? (
         <div className="empty_expense">
           <p>📒No expenses under the selected category</p>
@@ -104,3 +123,5 @@ function ExpenseList({
 }
 
 export default ExpenseList;
+
+// Today, start implementing Sort functionality after learning the sort method in js

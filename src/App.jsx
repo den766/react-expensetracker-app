@@ -17,6 +17,7 @@ function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOrderValue, setSortOrderValue] = useState("none");
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
   console.log(searchQuery);
@@ -60,7 +61,7 @@ function App() {
 
     toast("Expense Added");
 
-    console.log(expenses);
+    // console.log(expenses);
   }
 
   function HandleDeleteExpense(id) {
@@ -114,6 +115,8 @@ function App() {
             expense.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
+ 
+
   const visibleExpenses = !searchQuery
     ? filteredExpenses
     : filteredExpenses.filter(
@@ -122,7 +125,8 @@ function App() {
           expense.category.toLowerCase().includes(searchQuery.toLowerCase()),
       );
 
-  // console.log(visibleExpenses);
+  const sortExpenses = sortOrderValue === "none" ? visibleExpenses : visibleExpenses.toSorted((a,b)=> b.amount - a.amount);
+  console.log(sortExpenses);
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;
@@ -158,7 +162,7 @@ function App() {
                   setSearchQuery={setSearchQuery}
                 />
                 <ExpenseList
-                  expenses={visibleExpenses}
+                  expenses={sortExpenses}
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
                   onDeleteExpense={HandleDeleteExpense}
@@ -167,6 +171,8 @@ function App() {
                   onUpdateExpense={HandleUpdateExpense}
                   onEditCancel={HandleEditCancel}
                   error={error}
+                  sortOrderValue={sortOrderValue}
+                  setSortOrderValue={setSortOrderValue}
                 />
               </>
             }
