@@ -143,11 +143,21 @@ function App() {
         b.title.localeCompare(a.title),
       );
       break;
+
+    case "newest":
+      sortExpenses = visibleExpenses.toSorted((a, b) =>
+        b.createdAt.localeCompare(a.createdAt),
+      );
+      break;
+
+    case "oldest":
+      sortExpenses = visibleExpenses.toSorted((a, b) =>
+        a.createdAt.localeCompare(b.createdAt),
+      );
+      break;
     default:
       sortExpenses = visibleExpenses;
   }
-
-  console.log(sortOrderValue);
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;
