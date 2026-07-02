@@ -132,10 +132,22 @@ function App() {
     case "lowest":
       sortExpenses = visibleExpenses.toSorted((a, b) => a.amount - b.amount);
       break;
+    case "az":
+      sortExpenses = visibleExpenses.toSorted((a, b) =>
+        a.title.localeCompare(b.title),
+      );
+      break;
 
+    case "za":
+      sortExpenses = visibleExpenses.toSorted((a, b) =>
+        b.title.localeCompare(a.title),
+      );
+      break;
     default:
       sortExpenses = visibleExpenses;
   }
+
+  console.log(sortOrderValue);
 
   const expenseSummary = expenses.reduce((acc, expense) => {
     return acc + expense.amount;

@@ -74,6 +74,8 @@ function ExpenseList({
             <option value="none">None</option>
             <option value="highest">Highest Amount</option>
             <option value="lowest">Lowest Amount</option>
+            <option value="az">Title (A-Z)</option>
+             <option value="za">Title (Z-A)</option>
           </select>
         </div>
       )}
