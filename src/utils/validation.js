@@ -31,3 +31,15 @@ export function ValidateExpense(title, amount, category) {
     return "Please select a category";
   }
 }
+
+export function validateMonthlyBudget(budgetInput){
+   
+  if (isNaN(budgetInput)) {
+    return "Amount must be a valid number";
+  }
+
+  if (budgetInput < 1000 ){
+     return "Budget must be at least ₹1000"
+  }
+   
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { validateMonthlyBudget } from "./utils/validation";
 
 function MonthlyBudget({
   isEditing,
@@ -8,6 +9,21 @@ function MonthlyBudget({
   monthlyTotals,
 }) {
   const [budgetInput, setBudgetInput] = useState("");
+  const [budgetError, setBudgetError] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const error = validateMonthlyBudget(budgetInput);
+
+    if (error) {
+      setBudgetError(error);
+      return;
+    }
+
+    setBudgetError("");
+    setMonthlyBudget(Number(budgetInput));
+    setIsEditing(false);
+  }
 
   const date = new Date();
 
@@ -25,22 +41,18 @@ function MonthlyBudget({
   const remainingBudget = monthlyBudget - currentMonthSpent;
   if (isEditing) {
     return (
-      <div className="Budget-txt">
-        <input
-          value={budgetInput}
-          onChange={(e) => setBudgetInput(e.target.value)}
-          type="number"
-          placeholder="Type your budget"
-        />
-        <button
-          onClick={() => {
-            setMonthlyBudget(Number(budgetInput));
-            setIsEditing(false);
-          }}
-        >
-          Review Budget
-        </button>
-      </div>
+      <>
+        {budgetError && <p className="error">{budgetError}</p>}
+        <form className="Budget-txt" onSubmit={handleSubmit}>
+          <input
+            value={budgetInput}
+            onChange={(e) => setBudgetInput(e.target.value)}
+            type="number"
+            placeholder="Type your budget"
+          />
+          <button>Review Budget</button>
+        </form>
+      </>
     );
   }
 
