@@ -8,6 +8,7 @@ import { saveExpenses, loadExpenses } from "./utils/storage";
 import ExpenseSummary from "./expensesummary";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
+import MonthlyBudget from "./budget";
 
 import DemoReport from "./pages/reports";
 import SearchExpense from "./searchexpense";
@@ -20,6 +21,8 @@ function App() {
   const [sortOrderValue, setSortOrderValue] = useState("none");
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [monthlyBudget, setMonthlyBudget] = useState("");
 
   useEffect(() => {
     saveExpenses(expenses);
@@ -163,6 +166,26 @@ function App() {
     return acc + expense.amount;
   }, 0);
 
+  const summary = expenses.reduce((acc, expense) => {
+    const date = new Date(expense.createdAt);
+    const month = date.toLocaleString("en-US", {
+      month: "short",
+    });
+
+    const year = date.getFullYear();
+
+    const key = `${month} ${year}`;
+
+    if (!acc[key]) {
+      acc[key] = 0;
+    }
+
+    acc[key] += expense.amount;
+    return acc;
+  }, {});
+
+  const monthlyTotals = Object.entries(summary);
+
   return (
     <div className="container">
       <Routes>
@@ -173,7 +196,14 @@ function App() {
             element={
               <>
                 <ExpenseSummary expenseSummary={expenseSummary} />
-                <MonthlySummary expenses={expenses} />
+                <MonthlyBudget
+                  isEditing={isEditing}
+                  setIsEditing={setIsEditing}
+                  monthlyBudget={monthlyBudget}
+                  setMonthlyBudget={setMonthlyBudget}
+                  monthlyTotals={monthlyTotals}
+                />
+                <MonthlySummary monthlyTotals={monthlyTotals} />
               </>
             }
           />
