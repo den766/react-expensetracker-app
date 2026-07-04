@@ -4,7 +4,12 @@ import AddExpenseForm from "./addexpesneform";
 import MonthlySummary from "./monthlysummary";
 import ExpenseList from "./expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
-import { saveExpenses, loadExpenses } from "./utils/storage";
+import {
+  saveExpenses,
+  loadExpenses,
+  saveMonthlyBudget,
+  loadMonthlyBudget,
+} from "./utils/storage";
 import ExpenseSummary from "./expensesummary";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
@@ -22,13 +27,15 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
   const [isEditing, setIsEditing] = useState(false);
-  const [monthlyBudget, setMonthlyBudget] = useState("");
+  const [monthlyBudget, setMonthlyBudget] = useState(() => loadMonthlyBudget());
 
   useEffect(() => {
     saveExpenses(expenses);
   }, [expenses]);
 
-
+  useEffect(() => {
+    saveMonthlyBudget(monthlyBudget);
+  }, [monthlyBudget]);
 
   function HandleSubmit(e, title, amount, category) {
     e.preventDefault();

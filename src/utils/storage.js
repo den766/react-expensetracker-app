@@ -225,3 +225,16 @@ export function loadExpenses() {
 
   return storedExpenses || [];
 }
+
+
+export function saveMonthlyBudget(monthlyBudget) {
+
+   localStorage.setItem("monthlyBudget", JSON.stringify(monthlyBudget));
+}
+
+export function loadMonthlyBudget(){
+
+   const storedMonthlyBudget = JSON.parse(localStorage.getItem("monthlyBudget"));
+   
+   return storedMonthlyBudget || 0
+}
