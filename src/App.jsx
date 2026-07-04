@@ -28,6 +28,8 @@ function App() {
     saveExpenses(expenses);
   }, [expenses]);
 
+
+
   function HandleSubmit(e, title, amount, category) {
     e.preventDefault();
 
