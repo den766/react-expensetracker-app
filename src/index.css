@@ -246,9 +246,16 @@ li .amount,
 }
 
 .error {
-  color: red;
-  font-size: var(--text-sm);
-  margin-top: var(--space-xs);
+  color:#dc2626;
+    font-size:var(--text-sm);
+
+    background:#fef2f2;
+
+    border:1px solid #fecaca;
+
+    padding:var(--space-sm);
+
+    border-radius:8px;
 }
 
 /* Filter UI  */
@@ -317,6 +324,7 @@ li .amount,
   padding: var(--space-lg);
   border-radius: 12px;
   margin-bottom: var(--space-lg);
+  margin-top: var(--space-md);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -581,6 +589,174 @@ li .amount,
   box-shadow: 0 0 0 3px rgba(79, 168, 216, 0.2);
 }
 
+/* budget form */
+
+.monthly-budget {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.monthly-budget h3 {
+  margin: 0;
+  font-size: var(--text-md);
+}
+
+.monthly-budget p {
+  margin: 0;
+  color: #6b7280;
+  font-size: var(--text-sm);
+}
+
+.budget-btn {
+  align-self: flex-start;
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--text-base);
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.budget-btn:hover {
+  opacity: 0.9;
+}
+
+/* budget Editing Card */
+
+.budget-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: var(--space-lg);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.budget-form h3{
+    margin:0;
+    font-size:var(--text-md);
+}
+
+.budget-form p{
+    margin:0;
+    font-size:var(--text-sm);
+    color:#6b7280;
+}
+
+.budget-form input{
+    padding:var(--space-sm);
+    font-size:var(--text-base);
+
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+}
+
+.budget-form input:focus{
+    border-color:#3b82f6;
+}
+
+.budget-form button{
+    align-self:flex-end;
+
+    padding:var(--space-sm) var(--space-lg);
+    margin-left: var(--space-sm);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+/* budget Card */ 
+
+.budget-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.budget-card h3 {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.budget-subtitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* budget rows */
+
+.budget-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.budget-row:last-of-type {
+  border-bottom: none;
+}
+
+.budget-row span {
+  font-size: var(--text-base);
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.budget-row strong {
+  font-size: var(--text-md);
+  font-weight: 700;
+  text-align: right;
+}
+
+.remaining-budget {
+  color: #16a34a;
+}
+
+/* edit button */
+
+.budget-edit-btn {
+  margin-top: var(--space-sm);
+  align-self: flex-end;
+
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: 8px;
+
+  font-size: var(--text-base);
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.budget-edit-btn:hover {
+  opacity: 0.9;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
@@ -649,5 +825,22 @@ li .amount,
   .sort-container select {
     width: 100%;
     min-width: 0;
+  }
+}
+
+/* budget UI responsiveness */
+
+@media (max-width: 600px) {
+  .budget-card {
+    padding: var(--space-md);
+  }
+
+  .budget-row {
+    gap: var(--space-sm);
+  }
+
+  .budget-edit-btn {
+    width: 100%;
+    align-self: stretch;
   }
 }

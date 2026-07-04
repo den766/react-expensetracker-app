@@ -42,37 +42,52 @@ function MonthlyBudget({
   if (isEditing) {
     return (
       <>
-        {budgetError && <p className="error">{budgetError}</p>}
-        <form className="Budget-txt" onSubmit={handleSubmit}>
-          <input
-            value={budgetInput}
-            onChange={(e) => setBudgetInput(e.target.value)}
-            type="number"
-            placeholder="Type your budget"
-          />
-          <button>Review Budget</button>
-        </form>
+        <div className="budget-form">
+          <h3>Set your Budget</h3>
+          {budgetError && <p className="error">{budgetError}</p>}
+          <form className="Budget-txt" onSubmit={handleSubmit}>
+            <input
+              value={budgetInput}
+              onChange={(e) => setBudgetInput(e.target.value)}
+              type="number"
+              placeholder="Type your budget"
+            />
+            <button>Review Budget</button>
+          </form>
+        </div>
       </>
     );
   }
 
   if (monthlyBudget) {
     return (
-      <div className="Budget-Ui">
+      <div className="budget-card">
         <h3>Monthly Budget</h3>
-        <p>{monthlyBudget}</p>
-        <p>Spend : {currentMonthSpent} </p>
-        <p>Remaining:- {remainingBudget}</p>
-        <button>Edit</button>
+        <p className="budget-subtitle">Stay within your monthly spending</p>
+        <div className="budget-row">
+          <span>Budget</span>
+          <strong>₹{monthlyBudget}</strong>
+        </div>
+
+        <div className="budget-row">
+          <span>Spent</span>
+          <strong>₹{currentMonthSpent}</strong>
+        </div>
+
+        <div className="budget-row">
+          <span>Remaining</span>
+          <strong className="remaining-budget">₹{remainingBudget}</strong>
+        </div>
+        <button className="budget-edit-btn">Edit Budget</button>
       </div>
     );
   }
 
   return (
     <div className="monthly-budget">
-      <h3>Montly Budget</h3>
+      <h3>Monthly Budget</h3>
       <p>Set simple limits to stay on track</p>
-      <button className="budet-btn" onClick={() => setIsEditing(!isEditing)}>
+      <button className="budget-btn" onClick={() => setIsEditing(!isEditing)}>
         Set Monthly Budget
       </button>
     </div>
