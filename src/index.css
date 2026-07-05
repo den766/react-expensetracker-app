@@ -843,4 +843,10 @@ li .amount,
     width: 100%;
     align-self: stretch;
   }
+
+  .budget-form button{
+
+    margin-top: var(--space-md);
+    margin-right: var(--space-md);
+  }
 }
