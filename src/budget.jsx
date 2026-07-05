@@ -43,7 +43,7 @@ function MonthlyBudget({
     return (
       <>
         <div className="budget-form">
-          <h3>Set your Budget</h3>
+          <h3>{monthlyBudget ? "Edit Your Budget" : "Set Your Budget"}</h3>
           {budgetError && <p className="error">{budgetError}</p>}
           <form className="Budget-txt" onSubmit={handleSubmit}>
             <input
@@ -52,7 +52,7 @@ function MonthlyBudget({
               type="number"
               placeholder="Type your budget"
             />
-            <button>Review Budget</button>
+            <button> {monthlyBudget ? "Save Changes" : "Review Budget"}</button>
           </form>
         </div>
       </>
@@ -78,7 +78,15 @@ function MonthlyBudget({
           <span>Remaining</span>
           <strong className="remaining-budget">₹{remainingBudget}</strong>
         </div>
-        <button className="budget-edit-btn">Edit Budget</button>
+        <button
+          className="budget-edit-btn"
+          onClick={() => {
+            setBudgetInput(monthlyBudget);
+            setIsEditing(true);
+          }}
+        >
+          Edit Budget
+        </button>
       </div>
     );
   }
