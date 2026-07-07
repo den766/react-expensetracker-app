@@ -39,6 +39,17 @@ function MonthlyBudget({
     monthlyTotals.find(([monthKey]) => monthKey === currentMonthKey) || [];
 
   const remainingBudget = monthlyBudget - currentMonthSpent;
+  const percentageSpent = Math.round((currentMonthSpent / monthlyBudget) * 100);
+
+  let budgetStatusMessage;
+  //  console.log(budgetStatusMessage);
+  if (percentageSpent < 80) {
+    budgetStatusMessage = "🟢 You are within your monthly budget.";
+  } else if (percentageSpent <= 100) {
+    budgetStatusMessage = `🟡 Warning: You've used ${percentageSpent}% of your monthly budget.`;
+  } else {
+    budgetStatusMessage = `🔴 You've exceeded your monthly budget by ₹${Math.abs(remainingBudget)}.`;
+  }
   if (isEditing) {
     return (
       <>
@@ -78,6 +89,7 @@ function MonthlyBudget({
           <span>Remaining</span>
           <strong className="remaining-budget">₹{remainingBudget}</strong>
         </div>
+        <p>{budgetStatusMessage}</p>
         <button
           className="budget-edit-btn"
           onClick={() => {
