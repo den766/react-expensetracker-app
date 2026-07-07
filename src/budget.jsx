@@ -89,7 +89,7 @@ function MonthlyBudget({
           <span>Remaining</span>
           <strong className="remaining-budget">₹{remainingBudget}</strong>
         </div>
-        <p>{budgetStatusMessage}</p>
+        <p className="budget-status">{budgetStatusMessage}</p>
         <button
           className="budget-edit-btn"
           onClick={() => {
