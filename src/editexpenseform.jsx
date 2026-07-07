@@ -7,7 +7,7 @@ function EditExpenseForm({
   category,
   onUpdateExpense,
   onCancelEdit,
-  error
+  error,
 }) {
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedAmount, setEditedAmount] = useState(amount);
@@ -20,7 +20,7 @@ function EditExpenseForm({
         onUpdateExpense(id, editedTitle, editedAmount, editedCategory);
       }}
     >
-       {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error}</p>}
       <input
         type="text"
         name="Expense_Title"
@@ -47,7 +47,9 @@ function EditExpenseForm({
         value={editedCategory}
         onChange={(e) => setEditedCategory(e.target.value)}
       >
-        <option value="" disabled>Select Category</option>
+        <option value="" disabled>
+          Select Category
+        </option>
         <option value="food">Food</option>
         <option value="transport">Transport</option>
         <option value="utilities">Utilities</option>

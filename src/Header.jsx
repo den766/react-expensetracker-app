@@ -1,11 +1,6 @@
-function Header(){
-
-
-     return (
-
-         <h1>Expense Tracker</h1>
-     )
-
+import { memo } from "react";
+function Header() {
+  return <h1>Expense Tracker</h1>;
 }
 
-export default Header;
+export default memo(Header);
