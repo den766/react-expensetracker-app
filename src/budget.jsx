@@ -42,7 +42,13 @@ function MonthlyBudget({
   const percentageSpent = Math.round((currentMonthSpent / monthlyBudget) * 100);
 
   let budgetStatusMessage;
-  //  console.log(budgetStatusMessage);
+  const progressColor =
+    percentageSpent < 80
+      ? "var(--color-success)"
+      : percentageSpent < 100
+        ? "var(--color-warning)"
+        : "var(--color-danger)";
+
   if (percentageSpent < 80) {
     budgetStatusMessage = "🟢 You are within your monthly budget.";
   } else if (percentageSpent <= 100) {
@@ -88,6 +94,22 @@ function MonthlyBudget({
         <div className="budget-row">
           <span>Remaining</span>
           <strong className="remaining-budget">₹{remainingBudget}</strong>
+        </div>
+        <div className="budget-progress">
+          <div className="budget-progress__header">
+            <span>Budget Usage</span>
+            <span>{percentageSpent}%</span>
+          </div>
+
+          <div className="budget-progress__track">
+            <div
+              className="budget-progress__fill"
+              style={{
+                width: `${percentageSpent}%`,
+                backgroundColor: progressColor,
+              }}
+            />
+          </div>
         </div>
         <p className="budget-status">{budgetStatusMessage}</p>
         <button
