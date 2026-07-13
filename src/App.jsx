@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, } from "react";
 
 import AddExpenseForm from "./addexpesneform";
 import MonthlySummary from "./monthlysummary";
@@ -171,11 +171,9 @@ function App() {
       sortExpenses = visibleExpenses;
   }
 
-  const expenseSummary = useMemo(() => {
-    return expenses.reduce((acc, expense) => {
-      return acc + expense.amount;
-    }, 0);
-  }, [expenses]);
+  const expenseSummary = expenses.reduce((acc, expense) => {
+    return acc + expense.amount;
+  }, 0);
 
   const summary = expenses.reduce((acc, expense) => {
     const date = new Date(expense.createdAt);
