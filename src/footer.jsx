@@ -1,6 +1,5 @@
-import { memo } from "react";
 function Footer() {
   return <footer className="footer">© 2026 Expense Tracker</footer>;
 }
 
-export default memo(Footer);
+export default Footer;
