@@ -409,7 +409,6 @@ li .amount,
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   overflow: hidden;
-  
 }
 
 .dashboard-nav a {
@@ -735,8 +734,6 @@ li .amount,
 }
 
 .budget-row strong {
-  font-size: var(--text-md);
-  font-weight: 700;
   text-align: right;
 }
 
