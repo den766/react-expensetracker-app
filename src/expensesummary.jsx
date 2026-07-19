@@ -1,9 +1,13 @@
+import { formatCurrency } from "./utils/formatCurrency";
+
 function ExpenseSummary({ expenseSummary }) {
+  console.log(expenseSummary);
+
   return (
     <div className="expense_summary">
       <h3>Total Expenses</h3>
 
-      <p className="summary_amount">₹ {expenseSummary}</p>
+      <p className="summary_amount"> {formatCurrency(expenseSummary)}</p>
     </div>
   );
 }

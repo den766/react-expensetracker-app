@@ -1,5 +1,6 @@
 import { formatDate } from "./utils/formatDate";
 import EditExpenseForm from "./editexpenseform";
+import { formatCurrency } from "./utils/formatCurrency";
 function ExpenseCard({
   id,
   title,
@@ -34,7 +35,7 @@ function ExpenseCard({
     <>
       <li key={id}>
         <p className="expense-title">{title}</p>
-        <p className="amount">₹{amount}</p>
+        <p className="amount">{formatCurrency(amount)}</p>
         <p className="category">{category}</p>
         <p className="expense-date">{formatDate(date)}</p>
         <div className="edt-delete-btngroup">

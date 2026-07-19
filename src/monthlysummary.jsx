@@ -1,3 +1,4 @@
+import { formatCurrency } from "./utils/formatCurrency";
 function MonthlySummary({ monthlyTotals }) {
   return (
     <div className="monthly-summary">
@@ -8,7 +9,7 @@ function MonthlySummary({ monthlyTotals }) {
       {monthlyTotals.map(([month, total]) => (
         <div className="month-row" key={month}>
           <span>{month}</span>
-          <span>₹{total}</span>
+          <span>{formatCurrency(total)}</span>
         </div>
       ))}
     </div>
