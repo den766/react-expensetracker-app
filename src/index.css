@@ -408,6 +408,8 @@ li .amount,
   margin-bottom: var(--space-xl);
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
+  overflow: hidden;
+  
 }
 
 .dashboard-nav a {
@@ -842,12 +844,17 @@ li .amount,
   }
 
   .dashboard-nav {
+    flex-wrap: nowrap;
     gap: var(--space-xs);
+    justify-content: flex-start;
+    overflow: auto;
+    scrollbar-width: none;
   }
 
   .dashboard-nav a {
     font-size: var(--text-sm);
     padding: var(--space-xs) var(--space-sm);
+    text-wrap: nowrap;
   }
 
   .filter_expenses {

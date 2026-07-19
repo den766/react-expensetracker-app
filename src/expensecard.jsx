@@ -50,7 +50,10 @@ function ExpenseCard({
       {selectedExpenseId === id && (
         <div className="modal-overlay">
           <div className="confirmation-modal">
-            <p>Are you sure you want to delete {title}? This action cannot be undone.</p>
+            <p>
+              Are you sure you want to delete {title}? This action cannot be
+              undone.
+            </p>
             <div className="btn-container">
               <button onClick={closeModal}>Cancel</button>
 
