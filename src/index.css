@@ -855,7 +855,14 @@ li .amount,
   }
 
   .filter_expenses {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow: auto;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+
+  .filter_expenses > button {
+    font-size: var(--text-sm);
   }
 
   .edt-delete-btngroup,
@@ -867,7 +874,6 @@ li .amount,
     /* flex-direction: column; */
     align-items: flex-start;
     gap: var(--space-xs);
-    
   }
 }
 
