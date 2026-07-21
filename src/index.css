@@ -270,6 +270,7 @@ li .amount,
   display: flex;
   justify-content: center;
   gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .filter_expenses > button {
@@ -372,7 +373,7 @@ li .amount,
 .Search {
   display: flex;
   justify-content: center;
-  margin: var(--space-md) 0;
+  margin: var(--space-lg) auto;
 }
 
 .Search input {
@@ -557,7 +558,7 @@ li .amount,
   align-items: center;
   gap: var(--space-sm);
   flex-wrap: wrap;
-  margin: var(--space-md) auto;
+  margin-bottom: var(--space-lg);
 }
 
 .sort-container label {
@@ -931,17 +932,17 @@ li .amount,
 
   /* Sort */
   .sort-container {
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: flex-end;
     align-items: stretch;
   }
 
   .sort-container label {
     margin-bottom: 0.25rem;
+    font-weight: normal;
   }
 
   .sort-container select {
-    width: 100%;
     min-width: 0;
+    padding: 0;
   }
 }
