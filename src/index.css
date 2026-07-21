@@ -153,6 +153,10 @@ li .amount,
   gap: var(--space-sm);
 }
 
+.edt-delete-btngroup button {
+  min-width: 70px;
+}
+
 .delete-btn {
   margin-top: var(--space-sm);
   padding: var(--space-xs) var(--space-md);
@@ -176,16 +180,12 @@ li .amount,
 .edit-btn {
   margin-top: var(--space-sm);
   padding: var(--space-xs) var(--space-md);
-
   border: none;
   border-radius: 6px;
-
   background-color: #1976d2;
   color: white;
-
   cursor: pointer;
   font-size: var(--text-sm);
-
   transition: 0.2s ease;
 }
 
@@ -876,7 +876,7 @@ li .amount,
 
   .edt-delete-btngroup,
   .edit-btn-group {
-    gap: var(--space-lg);
+    gap: var(--space-sm);
   }
 
   /* Monthly Summary */
