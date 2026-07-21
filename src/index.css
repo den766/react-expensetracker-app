@@ -335,7 +335,7 @@ li .amount,
 }
 
 .monthly-summary h3 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .month-row {
@@ -864,9 +864,10 @@ li .amount,
   }
 
   .month-row {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
     gap: var(--space-xs);
+    
   }
 }
 
