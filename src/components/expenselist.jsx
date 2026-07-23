@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ExpenseCard from "./expensecard";
-import UserConfirmationModel from "./hooks/useConfirmmodel";
+import UserConfirmationModel from "../hooks/useConfirmmodel";
 function ExpenseList({
   expenses,
   onDeleteExpense,
@@ -45,7 +45,6 @@ function ExpenseList({
   };
   return (
     <div>
- 
       <div className="filter_expenses">
         {categories.map((cat) => (
           <button

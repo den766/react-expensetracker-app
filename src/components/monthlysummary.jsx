@@ -1,4 +1,4 @@
-import { formatCurrency } from "./utils/formatCurrency";
+import { formatCurrency } from "../utils/formatCurrency";
 function MonthlySummary({ monthlyTotals }) {
   return (
     <div className="monthly-summary">

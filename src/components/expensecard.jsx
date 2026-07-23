@@ -1,6 +1,6 @@
-import { formatDate } from "./utils/formatDate";
+import { formatDate } from "../utils/formatDate";
 import EditExpenseForm from "./editexpenseform";
-import { formatCurrency } from "./utils/formatCurrency";
+import { formatCurrency } from "../utils/formatCurrency";
 function ExpenseCard({
   id,
   title,

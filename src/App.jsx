@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import AddExpenseForm from "./addexpesneform";
-import MonthlySummary from "./monthlysummary";
-import ExpenseList from "./expenselist";
+import AddExpenseForm from "./components/addexpesneform";
+import MonthlySummary from "./components/monthlysummary";
+import ExpenseList from "./components/expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import {
   saveExpenses,
@@ -10,13 +10,13 @@ import {
   saveMonthlyBudget,
   loadMonthlyBudget,
 } from "./utils/storage";
-import ExpenseSummary from "./expensesummary";
+import ExpenseSummary from "./components/expensesummary";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
-import MonthlyBudget from "./budget";
+import MonthlyBudget from "./components/budget";
 
 import DemoReport from "./pages/reports";
-import SearchExpense from "./searchexpense";
+import SearchExpense from "./components/searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
 function App() {

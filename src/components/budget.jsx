@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { validateMonthlyBudget  } from "./utils/validation";
-import { formatCurrency } from "./utils/formatCurrency";
+import { validateMonthlyBudget } from "../utils/validation";
+import { formatCurrency } from "../utils/formatCurrency";
 
 function MonthlyBudget({
   isEditing,
@@ -94,7 +94,9 @@ function MonthlyBudget({
 
         <div className="budget-row">
           <span>Remaining</span>
-          <strong className="remaining-budget">{formatCurrency(remainingBudget)}</strong>
+          <strong className="remaining-budget">
+            {formatCurrency(remainingBudget)}
+          </strong>
         </div>
         <div className="budget-progress">
           <div className="budget-progress__header">
