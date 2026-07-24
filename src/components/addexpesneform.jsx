@@ -8,8 +8,9 @@ function AddExpenseForm({ onHandleForm, error }) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        const sucess = onHandleForm(e, title, amount, category);
-        if (!sucess) {
+        const success = onHandleForm(title, amount, category);
+        console.log(success);
+        if (success) {
           setTitle("");
           setAmount("");
           setCategory("");

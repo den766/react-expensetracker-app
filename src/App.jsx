@@ -37,9 +37,7 @@ function App() {
     saveMonthlyBudget(monthlyBudget);
   }, [monthlyBudget]);
 
-  function HandleSubmit(e, title, amount, category) {
-    e.preventDefault();
-
+  function HandleSubmit(title, amount, category) {
     const cleanTitle = formatTitle(title);
     const validationError = ValidateExpense(cleanTitle, amount, category);
 
@@ -69,6 +67,8 @@ function App() {
     setError("");
 
     toast("Expense Added");
+
+    return true;
   }
 
   function HandleDeleteExpense(id) {
