@@ -1,8 +1,12 @@
 import { formatCurrency } from "../utils/formatCurrency";
+import { CalendarDays } from "lucide-react";
 function MonthlySummary({ monthlyTotals }) {
   return (
     <div className="monthly-summary">
-      <h3>Monthly Summary</h3>
+      <h3>
+        <CalendarDays size={20}/>
+        <span>Monthly Summary</span>
+      </h3>
 
       <p className="summary-subtitle">Expenses grouped by month</p>
 

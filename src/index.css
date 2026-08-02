@@ -331,6 +331,9 @@ li .amount,
 
 .monthly-summary h3 {
   margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .month-row {
