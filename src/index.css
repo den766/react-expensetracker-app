@@ -85,15 +85,16 @@ h2 {
 .addexpense button {
   padding: var(--space-sm);
   border: none;
-  background-color: black;
+  background-color: #2563eb;
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  font-weight: 600;
 }
 
 .addexpense button:hover {
-  opacity: 0.9;
+  background-color: #1d4ed8;
 }
 
 .category {
@@ -438,8 +439,8 @@ li .amount,
 }
 
 .dashboard-nav a.active {
-  background-color: #e5e7eb;
-  color: #111827;
+  background-color: #dbeafe;
+  color: #2563eb;
 }
 
 /* Confirmation Modal */
@@ -757,13 +758,15 @@ li .amount,
 
   font-size: var(--text-base);
   font-weight: 600;
+  background-color: #2563eb;
+  color: white;
 
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .budget-edit-btn:hover {
-  opacity: 0.9;
+  background-color: #1d4ed8;
 }
 
 /* Budget Status */
