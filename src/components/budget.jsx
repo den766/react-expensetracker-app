@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { validateMonthlyBudget } from "../utils/validation";
 import { formatCurrency } from "../utils/formatCurrency";
+import { Target } from "lucide-react";
 
 function MonthlyBudget({
   isEditing,
@@ -80,7 +81,10 @@ function MonthlyBudget({
   if (monthlyBudget) {
     return (
       <div className="budget-card">
-        <h3>Monthly Budget</h3>
+        <h3>
+          <Target size={20} />
+          <span>Monthly Budget</span>
+        </h3>
         <p className="budget-subtitle">Stay within your monthly spending</p>
         <div className="budget-row">
           <span>Budget</span>
