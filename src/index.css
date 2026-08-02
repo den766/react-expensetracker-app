@@ -299,6 +299,9 @@ li .amount,
 .expense_summary h3 {
   font-size: var(--text-md);
   color: #555;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .summary_amount {
@@ -306,6 +309,13 @@ li .amount,
   font-weight: bold;
 
   color: #111;
+}
+
+.summary_subtitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: #6b7280;
+  line-height: 1.5;
 }
 
 /* Monthly Summary */
