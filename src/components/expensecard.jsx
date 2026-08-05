@@ -34,17 +34,23 @@ function ExpenseCard({
   return (
     <>
       <li key={id}>
-        <p className="expense-title">{title}</p>
-        <p className="amount">{formatCurrency(amount)}</p>
-        <p className="category">{category}</p>
-        <p className="expense-date">{formatDate(date)}</p>
-        <div className="edt-delete-btngroup">
-          <button className="delete-btn" onClick={() => openModal(id)}>
-            Delete
-          </button>
-          <button className="edit-btn" onClick={() => editExpense(id)}>
-            Edit
-          </button>
+        <div className="expense-card__content">
+          <p className="expense-title">{title}</p>
+          <p className="category">{category}</p>
+          <p className="expense-date">{formatDate(date)}</p>
+        </div>
+
+        <div className="expense-card__actions">
+          <p className="amount">{formatCurrency(amount)}</p>
+
+          <div className="edt-delete-btngroup">
+            <button className="delete-btn" onClick={() => openModal(id)}>
+              Delete
+            </button>
+            <button className="edit-btn" onClick={() => editExpense(id)}>
+              Edit
+            </button>
+          </div>
         </div>
       </li>
 

@@ -115,6 +115,8 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* ---------- Expense Card ---------- */
+
 ul {
   list-style: none;
   display: flex;
@@ -122,37 +124,73 @@ ul {
   gap: var(--space-md);
 }
 
+.expense-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+
 li {
-  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fafafa;
   border: 1px solid #ececec;
-  padding: var(--space-md);
   border-radius: 14px;
-  transition: 0.2s ease;
+
+  padding: var(--space-lg);
+  transition: all 0.2s ease;
 }
 
-.amount {
-  font-size: var(--text-sm);
-  font-weight: 700;
+/* ---------- Left Section ---------- */
+
+.expense-card__content {
+  display: flex;
+  flex-direction: column;
 }
 
-li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-}
-
-li p {
+.expense-title {
+  font-size: var(--text-md);
+  font-weight: 600;
   margin-bottom: var(--space-sm);
 }
 
-li .expense-title {
-  font-size: var(--text-md);
-  font-weight: 600;
+.category {
+  display: inline-block;
+  width: fit-content;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  background: #dbeafe;
+  color: #1e3a8a;
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+
+  margin-bottom: var(--space-md);
 }
 
-li .amount,
-.category,
 .expense-date {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
+  color: #6b7280;
+}
+
+/* ---------- Right Section ---------- */
+
+.expense-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+
+.amount {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: #111827;
 }
 
 .edt-delete-btngroup {
@@ -177,11 +215,11 @@ li .amount,
 }
 
 .delete-btn {
-  background-color: #e53935;
+  background-color: #ef4444;
 }
 
 .edit-btn {
-  background-color: #1976d2;
+  background-color: #2563eb;
 }
 
 .delete-btn:hover,
@@ -193,6 +231,8 @@ li .amount,
 .edit-btn:active {
   transform: scale(0.98);
 }
+
+/* Edit Expense Form */
 
 .edit-expense-form {
   margin-top: var(--space-lg);
@@ -954,5 +994,27 @@ li .amount,
   .sort-container select {
     min-width: 0;
     padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .expense-card__actions {
+    align-items: stretch;
+  }
+
+  .amount {
+    text-align: left;
+    font-size: var(--text-md);
+    margin-top: var(--space-sm);
+  }
+
+  .edt-delete-btngroup {
+    justify-content: flex-end;
   }
 }
