@@ -876,6 +876,80 @@ li {
     background-color 250ms ease;
 }
 
+/* Reports */
+
+.reports-page {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xxl) 0;
+}
+
+.reports-card {
+  width: 100%;
+  max-width: 650px;
+
+  text-align: center;
+
+  background: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+
+  padding: var(--space-xxl);
+
+  transition: 0.2s ease;
+}
+
+.reports-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.reports-icon {
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto var(--space-lg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.reports-card h2 {
+  margin-bottom: var(--space-md);
+
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.reports-description {
+  max-width: 480px;
+  margin: 0 auto var(--space-xl);
+
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.reports-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  padding: var(--space-sm) var(--space-lg);
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-weight: 600;
+}
+
 /* =========================
    Mobile (768px and below)
 ========================= */
@@ -960,6 +1034,39 @@ li {
     margin-top: var(--space-md);
     margin-right: var(--space-md);
   }
+
+  li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .expense-card__actions {
+    align-items: stretch;
+  }
+
+  .amount {
+    text-align: left;
+    font-size: var(--text-md);
+    margin-top: var(--space-sm);
+  }
+
+  .edt-delete-btngroup {
+    justify-content: flex-end;
+  }
+
+  .reports-card {
+    padding: var(--space-lg);
+  }
+
+  .reports-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .reports-card h2 {
+    font-size: var(--text-lg);
+  }
 }
 
 /* =========================
@@ -998,23 +1105,4 @@ li {
 }
 
 @media (max-width: 600px) {
-  li {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-md);
-  }
-
-  .expense-card__actions {
-    align-items: stretch;
-  }
-
-  .amount {
-    text-align: left;
-    font-size: var(--text-md);
-    margin-top: var(--space-sm);
-  }
-
-  .edt-delete-btngroup {
-    justify-content: flex-end;
-  }
 }
