@@ -317,6 +317,44 @@ li {
   color: white;
 }
 
+/* Empty State */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xxl);
+  align-items: center;
+  text-align: center;
+}
+
+.empty-state-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.empty-state-title {
+  margin-bottom: var(--space-md);
+
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.empty-state-message {
+  max-width: 480px;
+  margin-bottom: var(--space-xl);
+
+  color: #64748b;
+  line-height: 1.7;
+  font-weight: 500;
+}
 
 /* Expense Summary */
 
