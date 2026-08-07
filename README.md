@@ -1,163 +1,210 @@
-# Expense Tracker Dashboard
+# 💰 Expense Tracker Dashboard
 
-A React-based Expense Tracker Dashboard built as part of my MERN Stack learning journey.
+A modern **React-based Expense Tracker Dashboard** built as part of my MERN Stack learning journey.
 
-The project started as a simple expense tracker and gradually evolved into a multi-page dashboard application featuring CRUD operations, search, filtering, analytics, local persistence, and client-side routing.
-
-## Live Demo
-
-🔗 https://react-expensetracker-app.vercel.app
+The project started as a simple CRUD expense tracker and gradually evolved into a multi-page dashboard featuring budgeting, search, filtering, analytics, routing, and responsive design.
 
 ---
 
-## Features
+## 🌐 Live Demo
 
-### Expense Management
+🔗 https://react-expensetracker-app.vercel.app
+
+## 📂 GitHub Repository
+
+🔗 https://github.com/den766/react-expensetracker-app
+
+---
+
+# ✨ Features
+
+## 💳 Expense Management
 
 - Add new expenses
 - Edit existing expenses
 - Delete expenses
+- Confirmation modal before deletion
 - Form validation
+- Duplicate expense detection
 - LocalStorage persistence
-
-### Organization & Search
-
-- Category-based filtering
-- Expense search functionality
-- Empty state handling
-
-### Analytics & Summaries
-
-- Total expense summary using `Array.reduce()`
-- Monthly expense summary using grouping and `reduce()`
-- Real-time derived statistics
-
-### Routing & Navigation
-
-- Multi-page dashboard using React Router
-- Nested routes
-- Shared dashboard layout
-- Active navigation links
-- Dashboard overview page
-- Route-based navigation flow
-
-### User Experience
-
-- Responsive design
-- Clean dashboard layout
-- Reusable component architecture
-- Intuitive navigation
 
 ---
 
-## Tech Stack
+## 📊 Dashboard
+
+- Total Expense summary
+- Monthly Budget tracking
+- Budget progress bar
+- Remaining budget calculation
+- Monthly expense summary
+
+---
+
+## 🔍 Organization & Search
+
+- Search expenses
+- Category filtering
+- Expense sorting
+- Empty state handling
+
+---
+
+## 🧭 Navigation
+
+- Multi-page dashboard
+- React Router
+- Nested routes
+- Shared dashboard layout
+- Active navigation
+- Responsive navigation
+
+---
+
+## 🎨 User Experience
+
+- Responsive design
+- Modern dashboard UI
+- Lucide icons
+- Consistent design system
+- Reusable component architecture
+- Mobile-friendly layout
+
+---
+
+# 🛠 Tech Stack
 
 - React
 - JavaScript (ES6+)
 - React Router DOM
+- Lucide React
 - CSS
 - Vite
+- LocalStorage
 
 ---
 
-## Key Learning Outcomes
+# 🧠 React Concepts Practiced
 
-During this project, I practiced:
-
-- Building CRUD functionality with React
-- Managing state using a single source of truth
-- Creating derived state for filtering and search
-- Transforming data using `map()`, `filter()`, and `reduce()`
-- Grouping expenses by month for analytics
-- Implementing client-side persistence with LocalStorage
-- Structuring applications using reusable React components
-- Building multi-page dashboards with React Router
-- Creating nested layouts and navigation flows
-- Thinking about application architecture and user experience
-
----
-
-## React Concepts Practiced
-
-- React Components
+- Components
 - Props
 - useState
 - useEffect
 - Controlled Forms
 - Conditional Rendering
 - Component Composition
-- Array Methods (`map`, `filter`, `reduce`)
-- CRUD Operations
 - Derived State
-- LocalStorage
+- CRUD Operations
 - React Router
 - Nested Routes
 - Layout Routes
-- Navigation & Route Management
+- LocalStorage
+- Array Methods
+  - map()
+  - filter()
+  - reduce()
 
 ---
 
-## Project Status
+# 📚 Key Learning Outcomes
 
-🚀 Frontend MVP Completed
+During this project I learned how to:
 
-### Current Functionality
+- Design reusable React components
+- Manage application state using a single source of truth
+- Build CRUD applications
+- Create derived state for filtering and searching
+- Group expenses using `reduce()`
+- Persist data using LocalStorage
+- Structure React applications for scalability
+- Build multi-page applications with React Router
+- Improve UI consistency through reusable design patterns
+- Think about application architecture instead of individual components
 
-- Dashboard Overview
-- Create Expense
-- Expense List
-- Search Expenses
-- Filter Expenses
-- Edit Expenses
-- Delete Expenses
-- Expense Summary
-- Monthly Summary
-- Routing & Navigation
-- LocalStorage Persistence
+---
 
-### Next Planned Features
+# 🚀 Current Functionality
 
-#### Frontend Improvements
+- ✅ Dashboard Overview
+- ✅ Expense CRUD
+- ✅ Search
+- ✅ Category Filtering
+- ✅ Expense Sorting
+- ✅ Monthly Budget
+- ✅ Budget Progress Tracking
+- ✅ Monthly Summary
+- ✅ Reports Placeholder
+- ✅ Responsive UI
+- ✅ LocalStorage Persistence
 
-- Expense sorting
-- Advanced filtering
-- Charts and visual analytics
-- Dark mode
-- Enhanced mobile responsiveness
+---
 
-#### Backend Integration
+# 🔮 Future Roadmap
+
+## 📊 Frontend
+
+- Charts & Visual Analytics
+- Dark Mode
+- Export Expenses
+- Advanced Reports
+
+## ⚙ Backend
 
 - Node.js
 - Express.js
 - REST API
-- MongoDB Database
-- Persistent cloud storage
+- MongoDB
+- Cloud Database
 
-#### Authentication
+## 🔐 Authentication
 
 - User Registration
 - User Login
-- Protected Routes
 - JWT Authentication
+- Protected Routes
 - User-specific expense management
 
 ---
 
-## Installation
+# ⚡ Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/den766/react-expensetracker-app.git
+```
+
+Navigate to the project
+
+```bash
+cd react-expensetracker-app
+```
+
+Install dependencies
 
 ```bash
 npm install
+```
+
+Start the development server
+
+```bash
 npm run dev
 ```
 
 ---
 
-## Deployment
+# 🚀 Deployment
 
-Hosted on Vercel.
+The project is deployed on **Vercel**.
+
+🔗 https://react-expensetracker-app.vercel.app
 
 ---
 
-## Future Goal
+# 📌 Project Status
 
-Transform this project into a full-stack MERN application with authentication, cloud-based data persistence, user-specific expense management, and analytics dashboards.
+**Frontend MVP Completed ✅**
+
+The current version focuses on building a polished React frontend.
+
+The next milestone is transforming this project into a **full-stack MERN application** by integrating Node.js, Express.js, MongoDB, authentication, and cloud-based data persistence.
