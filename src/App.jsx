@@ -233,6 +233,7 @@ function App() {
                 />
                 <ExpenseList
                   expenses={sortExpenses}
+                  searchQuery={searchQuery}
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
                   onDeleteExpense={HandleDeleteExpense}

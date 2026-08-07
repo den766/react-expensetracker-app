@@ -1,8 +1,11 @@
 import { useState } from "react";
 import ExpenseCard from "./expensecard";
 import UserConfirmationModel from "../hooks/useConfirmmodel";
+import EmptyState from "./emptystate";
+import { SearchX, FilterX } from "lucide-react";
 function ExpenseList({
   expenses,
+  searchQuery,
   onDeleteExpense,
   onEditExpense,
   editingId,
@@ -80,13 +83,24 @@ function ExpenseList({
           </select>
         </div>
       )}
-
-      {expenses.length === 0 ? (
-        <div className="empty_expense">
-          <p>📒No expenses under the selected category</p>
-        </div>
-      ) : (
-        ""
+      {expenses.length === 0 && (
+        <EmptyState
+          icon={searchQuery ? <SearchX size={48} /> : <FilterX size={48} />}
+          title={
+            searchQuery
+              ? "No matching expenses found"
+              : selectedCategory !== "All"
+                ? "No expenses in this category"
+                : "No expenses yet"
+          }
+          message={
+            searchQuery
+              ? `No results found for "${searchQuery}". Try another keyword.`
+              : selectedCategory !== "All"
+                ? "Choose another category or add a new expense."
+                : "Start by adding your first expense."
+          }
+        />
       )}
       <ul>
         {currentExpenses.map((expense) => {
