@@ -44,11 +44,11 @@ function ExpenseCard({
           <p className="amount">{formatCurrency(amount)}</p>
 
           <div className="edt-delete-btngroup">
-            <button className="delete-btn" onClick={() => openModal(id)}>
-              Delete
-            </button>
             <button className="edit-btn" onClick={() => editExpense(id)}>
               Edit
+            </button>
+            <button className="delete-btn" onClick={() => openModal(id)}>
+              Delete
             </button>
           </div>
         </div>

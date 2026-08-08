@@ -215,6 +215,177 @@ export function saveExpenses(expenses) {
   //     category: "Food",
   //     createdAt: "2026-06-22T12:00:00.000Z",
   //   },
+  //   {
+  //     id: 31,
+  //     title: "Internet Recharge",
+  //     amount: 999,
+  //     category: "Utilities",
+  //     createdAt: "2026-07-01T09:30:00.000Z",
+  //   },
+  //   {
+  //     id: 32,
+  //     title: "Groceries",
+  //     amount: 2650,
+  //     category: "Food",
+  //     createdAt: "2026-07-02T18:20:00.000Z",
+  //   },
+  //   {
+  //     id: 33,
+  //     title: "Petrol",
+  //     amount: 1800,
+  //     category: "Transport",
+  //     createdAt: "2026-07-03T08:45:00.000Z",
+  //   },
+  //   {
+  //     id: 34,
+  //     title: "Netflix",
+  //     amount: 649,
+  //     category: "Entertainment",
+  //     createdAt: "2026-07-05T10:15:00.000Z",
+  //   },
+  //   {
+  //     id: 35,
+  //     title: "Electricity Bill",
+  //     amount: 2150,
+  //     category: "Utilities",
+  //     createdAt: "2026-07-06T17:10:00.000Z",
+  //   },
+  //   {
+  //     id: 36,
+  //     title: "Coffee",
+  //     amount: 220,
+  //     category: "Food",
+  //     createdAt: "2026-07-08T16:40:00.000Z",
+  //   },
+  //   {
+  //     id: 37,
+  //     title: "Movie Tickets",
+  //     amount: 840,
+  //     category: "Entertainment",
+  //     createdAt: "2026-07-10T20:00:00.000Z",
+  //   },
+  //   {
+  //     id: 38,
+  //     title: "Bus Pass",
+  //     amount: 1200,
+  //     category: "Transport",
+  //     createdAt: "2026-07-12T08:00:00.000Z",
+  //   },
+  //   {
+  //     id: 39,
+  //     title: "Gym Membership",
+  //     amount: 1800,
+  //     category: "Other",
+  //     createdAt: "2026-07-14T19:30:00.000Z",
+  //   },
+  //   {
+  //     id: 40,
+  //     title: "Dinner",
+  //     amount: 690,
+  //     category: "Food",
+  //     createdAt: "2026-07-16T21:00:00.000Z",
+  //   },
+  //   {
+  //     id: 41,
+  //     title: "Books",
+  //     amount: 1450,
+  //     category: "Other",
+  //     createdAt: "2026-07-18T14:15:00.000Z",
+  //   },
+  //   {
+  //     id: 42,
+  //     title: "Uber Ride",
+  //     amount: 390,
+  //     category: "Transport",
+  //     createdAt: "2026-07-20T22:10:00.000Z",
+  //   },
+  //   {
+  //     id: 43,
+  //     title: "Water Bill",
+  //     amount: 480,
+  //     category: "Utilities",
+  //     createdAt: "2026-07-22T09:20:00.000Z",
+  //   },
+  //   {
+  //     id: 44,
+  //     title: "Pizza Night",
+  //     amount: 950,
+  //     category: "Food",
+  //     createdAt: "2026-07-24T19:45:00.000Z",
+  //   },
+  //   {
+  //     id: 45,
+  //     title: "Laptop Mouse",
+  //     amount: 899,
+  //     category: "Other",
+  //     createdAt: "2026-07-26T13:50:00.000Z",
+  //   },
+  //   {
+  //     id: 46,
+  //     title: "Spotify Premium",
+  //     amount: 119,
+  //     category: "Entertainment",
+  //     createdAt: "2026-07-28T11:30:00.000Z",
+  //   },
+  //   {
+  //     id: 47,
+  //     title: "Groceries",
+  //     amount: 3100,
+  //     category: "Food",
+  //     createdAt: "2026-07-30T18:10:00.000Z",
+  //   },
+
+  //   // ---------- August ----------
+
+  //   {
+  //     id: 48,
+  //     title: "Monthly Rent",
+  //     amount: 12000,
+  //     category: "Other",
+  //     createdAt: "2026-08-01T08:30:00.000Z",
+  //   },
+  //   {
+  //     id: 49,
+  //     title: "Petrol",
+  //     amount: 2100,
+  //     category: "Transport",
+  //     createdAt: "2026-08-02T09:45:00.000Z",
+  //   },
+  //   {
+  //     id: 50,
+  //     title: "Restaurant Lunch",
+  //     amount: 780,
+  //     category: "Food",
+  //     createdAt: "2026-08-03T13:15:00.000Z",
+  //   },
+  //   {
+  //     id: 51,
+  //     title: "Electricity Bill",
+  //     amount: 1980,
+  //     category: "Utilities",
+  //     createdAt: "2026-08-04T17:20:00.000Z",
+  //   },
+  //   {
+  //     id: 52,
+  //     title: "Movie Night",
+  //     amount: 620,
+  //     category: "Entertainment",
+  //     createdAt: "2026-08-05T20:10:00.000Z",
+  //   },
+  //   {
+  //     id: 53,
+  //     title: "Groceries",
+  //     amount: 2750,
+  //     category: "Food",
+  //     createdAt: "2026-08-06T18:30:00.000Z",
+  //   },
+  //   {
+  //     id: 54,
+  //     title: "Coffee",
+  //     amount: 240,
+  //     category: "Food",
+  //     createdAt: "2026-08-07T16:00:00.000Z",
+  //   },
   // ];
 
   localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -228,13 +399,11 @@ export function loadExpenses() {
 
 
 export function saveMonthlyBudget(monthlyBudget) {
-
-   localStorage.setItem("monthlyBudget", JSON.stringify(monthlyBudget));
+  localStorage.setItem("monthlyBudget", JSON.stringify(monthlyBudget));
 }
 
-export function loadMonthlyBudget(){
+export function loadMonthlyBudget() {
+  const storedMonthlyBudget = JSON.parse(localStorage.getItem("monthlyBudget"));
 
-   const storedMonthlyBudget = JSON.parse(localStorage.getItem("monthlyBudget"));
-   
-   return storedMonthlyBudget || 0
+  return storedMonthlyBudget || 0;
 }
