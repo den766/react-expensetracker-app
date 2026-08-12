@@ -49,7 +49,7 @@ function MonthlyBudget({
       ? "var(--color-success)"
       : percentageSpent < 100
         ? "var(--color-warning)"
-        : "var(--color-danger)";
+        : "var(--color-danger2)";
 
   if (percentageSpent < 80) {
     budgetStatusMessage = "🟢 You are within your monthly budget.";
