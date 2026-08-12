@@ -754,10 +754,10 @@ li {
 
 .budget-form button {
   align-self: flex-end;
-
+  color: #2563eb;
   padding: var(--space-sm) var(--space-lg);
   margin-left: var(--space-sm);
-
+  font-size: var(--text-base);
   border: none;
   border-radius: 8px;
 
