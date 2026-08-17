@@ -1,7 +1,7 @@
 import { BarChart3 } from "lucide-react";
 import CategorySpendingChart from "../components/CategorySpendingChart";
 
-function DemoReport({ categoryReportData }) {
+function Report({ categoryReportData }) {
   return (
     <section className="reports-page">
       <div className="reports-card">
@@ -12,8 +12,7 @@ function DemoReport({ categoryReportData }) {
         <h2>Reports</h2>
 
         <p className="reports-description">
-          Visual insights, spending trends, and category analytics will be
-          available here in a future update.
+          View your spending patterns and category-wise expenses for the current month.
         </p>
 
         <h3>Category Spending Chart </h3>
@@ -24,4 +23,4 @@ function DemoReport({ categoryReportData }) {
   );
 }
 
-export default DemoReport;
+export default Report;

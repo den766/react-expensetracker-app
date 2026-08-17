@@ -1,6 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { ChartNoAxesColumnIncreasing } from "lucide-react";
 
 function CategorySpendingChart({ categoryReportData }) {
+  if (categoryReportData.length === 0) {
+    return (
+      <div className="chart-empty-state">
+        <ChartNoAxesColumnIncreasing size={40} />
+        <p>No spending data available for this month.</p>
+      </div>
+    );
+  }
   return (
     <div className="category-spending-chart">
       <ResponsiveContainer width="100%" height={300}>
@@ -21,7 +30,7 @@ function CategorySpendingChart({ categoryReportData }) {
             interval={0}
           />
           <YAxis />
-          <Bar dataKey="total" fill="#2563eb" />
+          <Bar dataKey="total" fill="#2563eb" maxBarSize={80} />
         </BarChart>
       </ResponsiveContainer>
     </div>

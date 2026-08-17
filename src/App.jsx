@@ -15,7 +15,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ExpesneLayoutDashboard from "./pages/expenselayout";
 import MonthlyBudget from "./components/budget";
 
-import DemoReport from "./pages/reports";
+import Report from "./pages/reports";
 import SearchExpense from "./components/searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
@@ -285,7 +285,7 @@ function App() {
           />
           <Route
             path="reports"
-            element={<DemoReport categoryReportData={categoryReportData} />}
+            element={<Report categoryReportData={categoryReportData} />}
           />
         </Route>
       </Routes>
