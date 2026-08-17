@@ -29,15 +29,6 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [monthlyBudget, setMonthlyBudget] = useState(() => loadMonthlyBudget());
 
-  // Just figuring out the logic
-
-  // console.log(expenses[0].createdAt);
-  // const date = new Date(expenses[0].createdAt);
-  // console.log(date)
-  // console.log(date.getFullYear() , date.getMonth());
-
-  // we can use these space for logic trying out.
-
   useEffect(() => {
     saveExpenses(expenses);
   }, [expenses]);
@@ -296,7 +287,10 @@ function App() {
               </>
             }
           />
-          <Route path="reports" element={<DemoReport expenses={expenses} />} />
+          <Route
+            path="reports"
+            element={<DemoReport categoryReportData={categoryReportData} />}
+          />
         </Route>
       </Routes>
 

@@ -1,6 +1,7 @@
 import { BarChart3, Clock3 } from "lucide-react";
+import CategorySpendingChart from "../components/CategorySpendingChart";
 
-function DemoReport() {
+function DemoReport({categoryReportData}) {
   return (
     <section className="reports-page">
       <div className="reports-card">
@@ -16,8 +17,9 @@ function DemoReport() {
         </p>
 
         <div className="reports-coming-soon">
-          <Clock3 size={18} />
-          <span>Coming Soon</span>
+          {/* <Clock3 size={18} /> */}
+          {/* <span>Coming Soon</span> */}
+          <CategorySpendingChart categoryReportData={categoryReportData}/>
         </div>
       </div>
     </section>
