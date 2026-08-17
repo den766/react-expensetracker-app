@@ -29,6 +29,15 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [monthlyBudget, setMonthlyBudget] = useState(() => loadMonthlyBudget());
 
+  // Just figuring out the logic
+
+  // console.log(expenses[0].createdAt);
+  // const date = new Date(expenses[0].createdAt);
+  // console.log(date)
+  // console.log(date.getFullYear() , date.getMonth());
+
+  // we can use these space for logic trying out.
+
   useEffect(() => {
     saveExpenses(expenses);
   }, [expenses]);
@@ -195,6 +204,45 @@ function App() {
 
   const monthlyTotals = Object.entries(summary);
 
+  const currentDate = new Date();
+
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+
+  const currentMonthExpenses = expenses.filter((expense) => {
+    const expenseDate = new Date(expense.createdAt);
+
+    const expenseMonth = expenseDate.getMonth();
+
+    const expenseYear = expenseDate.getFullYear();
+
+    return expenseMonth === currentMonth && expenseYear === currentYear;
+  });
+
+  console.log(currentMonthExpenses);
+
+  const categoryTotals = currentMonthExpenses.reduce((acc, expense) => {
+    const category = expense.category.toLowerCase();
+    const amount = expense.amount;
+
+    if (!acc[category]) {
+      acc[category] = amount;
+    } else {
+      acc[category] += amount;
+    }
+
+    return acc;
+  }, {});
+
+  const categoryReportData = Object.entries(categoryTotals).map(
+    ([category, total]) => ({
+      category,
+      total,
+    }),
+  );
+
+  console.log(categoryReportData);
+
   return (
     <div className="container">
       <Routes>
@@ -248,7 +296,7 @@ function App() {
               </>
             }
           />
-          <Route path="reports" element={<DemoReport />} />
+          <Route path="reports" element={<DemoReport expenses={expenses} />} />
         </Route>
       </Routes>
 
