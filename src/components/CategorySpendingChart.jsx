@@ -1,18 +1,29 @@
-import { BarChart, Bar, XAxis, YAxis } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 function CategorySpendingChart({ categoryReportData }) {
   return (
-    <div>
-      <h3>Category Spending Chart </h3>
-      <BarChart width={600} height={300} data={categoryReportData}>
-        {
-          <>
-            <XAxis dataKey={"category"} />
-            <YAxis />
-            <Bar dataKey="total" />
-          </>
-        }
-      </BarChart>
+    <div className="category-spending-chart">
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart
+          margin={{
+            top: 10,
+            right: 10,
+            left: 10,
+            bottom: 50,
+          }}
+          data={categoryReportData}
+        >
+          <XAxis
+            dataKey={"category"}
+            angle={-45}
+            textAnchor="end"
+            height={70}
+            interval={0}
+          />
+          <YAxis />
+          <Bar dataKey="total" fill="#2563eb" />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

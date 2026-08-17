@@ -210,8 +210,6 @@ function App() {
     return expenseMonth === currentMonth && expenseYear === currentYear;
   });
 
-  console.log(currentMonthExpenses);
-
   const categoryTotals = currentMonthExpenses.reduce((acc, expense) => {
     const category = expense.category.toLowerCase();
     const amount = expense.amount;
@@ -231,8 +229,6 @@ function App() {
       total,
     }),
   );
-
-  console.log(categoryReportData);
 
   return (
     <div className="container">

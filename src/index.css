@@ -932,6 +932,10 @@ li {
   transition: 0.2s ease;
 }
 
+.reports-card h3 {
+  margin-bottom: var(--space-xl);
+}
+
 .reports-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
@@ -968,19 +972,10 @@ li {
   line-height: 1.7;
 }
 
-.reports-coming-soon {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
+/* BarChart */
 
-  padding: var(--space-sm) var(--space-lg);
-
-  /* border-radius: 999px; */
-
-  background: #eff6ff;
-  /* color: #2563eb; */
-
-  font-weight: 600;
+.category-spending-chart {
+  width: 100%;
 }
 
 /* =========================
