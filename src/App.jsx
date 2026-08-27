@@ -19,6 +19,7 @@ import Report from "./pages/reports";
 import SearchExpense from "./components/searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
+import { getExpenses } from "./services/expenses";
 function App() {
   const [expenses, setExpenses] = useState(() => loadExpenses());
   const [editingId, setEditingId] = useState(null);
@@ -36,6 +37,16 @@ function App() {
   useEffect(() => {
     saveMonthlyBudget(monthlyBudget);
   }, [monthlyBudget]);
+
+  useEffect(() => {
+    async function loadNewExpenses() {
+      const data = await getExpenses();
+
+      console.log(data);
+    }
+
+    loadNewExpenses();
+  }, []);
 
   function HandleSubmit(title, amount, category) {
     const cleanTitle = formatTitle(title);
