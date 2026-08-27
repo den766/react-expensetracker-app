@@ -6,7 +6,6 @@ import ExpenseList from "./components/expenselist";
 import { ValidateExpense, formatTitle } from "./utils/validation";
 import {
   saveExpenses,
-  loadExpenses,
   saveMonthlyBudget,
   loadMonthlyBudget,
 } from "./services/storage";
@@ -19,9 +18,9 @@ import Report from "./pages/reports";
 import SearchExpense from "./components/searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
-import { getExpenses } from "./services/expenses";
+import { getExpenses, createExpenses } from "./services/expenses";
 function App() {
-  const [expenses, setExpenses] = useState(() => loadExpenses());
+  const [expenses, setExpenses] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOrderValue, setSortOrderValue] = useState("none");
@@ -42,13 +41,14 @@ function App() {
     async function loadNewExpenses() {
       const data = await getExpenses();
 
+      setExpenses(data);
       console.log(data);
     }
 
     loadNewExpenses();
   }, []);
 
-  function HandleSubmit(title, amount, category) {
+  async function HandleSubmit(title, amount, category) {
     const cleanTitle = formatTitle(title);
     const validationError = ValidateExpense(cleanTitle, amount, category);
 
@@ -67,15 +67,18 @@ function App() {
     }
 
     const newExpense = {
-      id: Date.now(),
       title: cleanTitle,
       amount,
       category,
       createdAt: new Date().toISOString(),
     };
 
-    setExpenses((prev) => [...prev, newExpense]);
     setError("");
+
+    const createdExpense = await createExpenses(newExpense);
+    setExpenses((prev) => [...prev, createdExpense.newExpense]);
+
+    console.log(createdExpense);
 
     toast("Expense Added");
 

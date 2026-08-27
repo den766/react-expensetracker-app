@@ -6,9 +6,9 @@ function AddExpenseForm({ onHandleForm, error }) {
   const [category, setCategory] = useState("");
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        const success = onHandleForm(title, amount, category);
+        const success = await onHandleForm(title, amount, category);
         console.log(success);
         if (success) {
           setTitle("");
