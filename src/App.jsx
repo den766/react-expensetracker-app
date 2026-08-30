@@ -22,6 +22,7 @@ import {
   getExpenses,
   createExpenses,
   deleteExpenseBackEnd,
+  updateExpenseBackend,
 } from "./services/expenses";
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -87,7 +88,7 @@ function App() {
   }
 
   async function HandleDeleteExpense(id) {
-    const deleteExpenseba = await deleteExpenseBackEnd(id);
+    await deleteExpenseBackEnd(id);
 
     setExpenses((prev) => prev.filter((expense) => expense.id !== id));
     toast("Expense Deleted");
@@ -97,7 +98,12 @@ function App() {
     setEditingId(id);
   }
 
-  function HandleUpdateExpense(id, editedTitle, editedAmount, editedCategory) {
+  async function HandleUpdateExpense(
+    id,
+    editedTitle,
+    editedAmount,
+    editedCategory,
+  ) {
     const cleanTitle = formatTitle(editedTitle);
     const validationError = ValidateExpense(
       cleanTitle,
@@ -109,6 +115,15 @@ function App() {
       setError(validationError);
       return;
     }
+
+    const editedExpense = {
+      title: cleanTitle,
+      amount: editedAmount,
+      category: editedCategory,
+    };
+
+    await updateExpenseBackend(id, editedExpense);
+
     setExpenses((prev) =>
       prev.map((expense) =>
         expense.id === id

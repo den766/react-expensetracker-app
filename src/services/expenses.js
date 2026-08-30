@@ -16,7 +16,6 @@ export async function createExpenses(expense) {
   });
 
   return request.json();
-
 }
 
 export async function deleteExpenseBackEnd(id) {
@@ -25,6 +24,16 @@ export async function deleteExpenseBackEnd(id) {
   });
 
   return response;
+}
 
- 
+export async function updateExpenseBackend(id, editedExpenses) {
+  const response = await fetch(`http://localhost:5000/expenses/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(editedExpenses),
+  });
+
+  return response.json();
 }
