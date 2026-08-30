@@ -79,7 +79,9 @@ The project started as a simple CRUD expense tracker and gradually evolved into 
 - Lucide React
 - CSS
 - Vite
-- LocalStorage
+- LocalStorage (legacy/local persistence)
+- Fetch API
+- Node.js + Express backend
 
 ---
 
@@ -134,7 +136,8 @@ During this project I learned how to:
 - ✅ Monthly Summary
 - ✅ Reports Placeholder
 - ✅ Responsive UI
-- ✅ LocalStorage Persistence
+- ✅ Backend API Integration
+- ✅ Expense CRUD through REST API
 
 ---
 
@@ -147,11 +150,9 @@ During this project I learned how to:
 - Export Expenses
 - Advanced Reports
 
+
 ## ⚙ Backend
 
-- Node.js
-- Express.js
-- REST API
 - MongoDB
 - Cloud Database
 
