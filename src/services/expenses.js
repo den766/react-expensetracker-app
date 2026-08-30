@@ -1,7 +1,7 @@
 export async function getExpenses() {
   const response = await fetch("http://localhost:5000/expenses");
 
-  const data =  response.json();
+  const data = response.json();
 
   return data;
 }
@@ -17,5 +17,14 @@ export async function createExpenses(expense) {
 
   return request.json();
 
-  // console.log(expenses);
+}
+
+export async function deleteExpenseBackEnd(id) {
+  const response = await fetch(`http://localhost:5000/expenses/${id}`, {
+    method: "DELETE",
+  });
+
+  return response;
+
+ 
 }

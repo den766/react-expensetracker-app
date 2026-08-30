@@ -18,7 +18,11 @@ import Report from "./pages/reports";
 import SearchExpense from "./components/searchexpense";
 
 import { toast, ToastContainer } from "react-toastify";
-import { getExpenses, createExpenses } from "./services/expenses";
+import {
+  getExpenses,
+  createExpenses,
+  deleteExpenseBackEnd,
+} from "./services/expenses";
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -42,7 +46,6 @@ function App() {
       const data = await getExpenses();
 
       setExpenses(data);
-      console.log(data);
     }
 
     loadNewExpenses();
@@ -78,14 +81,14 @@ function App() {
     const createdExpense = await createExpenses(newExpense);
     setExpenses((prev) => [...prev, createdExpense.newExpense]);
 
-    console.log(createdExpense);
-
     toast("Expense Added");
 
     return true;
   }
 
-  function HandleDeleteExpense(id) {
+  async function HandleDeleteExpense(id) {
+    const deleteExpenseba = await deleteExpenseBackEnd(id);
+
     setExpenses((prev) => prev.filter((expense) => expense.id !== id));
     toast("Expense Deleted");
   }
