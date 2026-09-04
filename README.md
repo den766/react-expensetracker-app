@@ -12,7 +12,7 @@ The project started as a simple CRUD expense tracker and gradually evolved into 
 
 ## 📂 GitHub Repository
 
-🔗 https://github.com/den766/react-expensetracker-app
+🔗 https://github.com/den766/expense-tracker-frontend
 
 ---
 
@@ -170,13 +170,13 @@ During this project I learned how to:
 Clone the repository
 
 ```bash
-git clone https://github.com/den766/react-expensetracker-app.git
+git clone https://github.com/den766/expense-tracker-frontend.git
 ```
 
 Navigate to the project
 
 ```bash
-cd react-expensetracker-app
+cd expense-tracker-frontend
 ```
 
 Install dependencies
